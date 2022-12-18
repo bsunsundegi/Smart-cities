@@ -50,7 +50,7 @@ For the case of the PC server, Apache Web Server is installed to host the webpag
 The following guide was used to install the Apache Web Server: [Installing Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
 
 In the next picture it can bee seen that the web server has been well deployed
-https://github.com/bsunsundegi/Smart-cities/blob/main/1-Configure-global-structure/apache_desplegado.jpg
+(https://github.com/bsunsundegi/Smart-cities/blob/main/1-Configure-global-structure/apache_desplegado.jpg)
 ### Configure basic routing in PC gateway
 ### Configure basic routing in PC server
   
