@@ -5,10 +5,6 @@ This is the GitHub repository for the final practice of Smart cities. The author
 
 **Project Status:** `in progress`
 
-Ejemplo link:
-
-Install [docker for ubuntu](https://docs.docker.com/engine/install/ubuntu/).
-
 ## Content index
 During the implementation the following steps will be covered:
 
@@ -65,6 +61,7 @@ During the implementation the following steps will be covered:
 </details>
 
 ## Webpage
+[Webpage link](https://www.smartcities.fun)
 <details>
 <summary>Open to see details</summary>
   
