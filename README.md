@@ -46,7 +46,8 @@ During the implementation the following steps will be covered:
 ### Initiate PC server and gateway
 The operating system chosen for both the PC server and the PC gateway is Ubuntu 22.04. Each one of these PCs are executed in different virtual machines.
 For the case of the PC server, Apache Web Server is installed to host the webpage that later will be used.
-The following guide was used to install the Apache Web Server: [webpage link] (https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
+
+The following guide was used to install the Apache Web Server: [Apache Install](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
 ### Configure basic routing in PC gateway
 ### Configure basic routing in PC server
   
