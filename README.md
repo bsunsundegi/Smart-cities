@@ -3,6 +3,9 @@
 ## Description
 This is the GitHub repository for the final practice of Smart cities. The authors of the practice are [@bsunsundegi](https://github.com/bsunsundegi), [@jmuguruza](https://github.com/jmuguruza), [@acamher](https://github.com/acamher) and [@carlostoca1](https://github.com/carlostoca1).
 
+**Project Status:** `in progress`
+
+## Content index
 During the implementation the following steps will be covered:
 
 - [Configure global structure](#configure-global-structure)
@@ -30,7 +33,7 @@ During the implementation the following steps will be covered:
   - [Configure RaspberryPi](#configure-raspberrypi)
   - [Install sensors software](#install-sensors-software)
   - [Configure apache MiNiFi](#configure-apache-minifi)
-  - [Configure routing in PC gateway](#Configure-routing-in-pc-gateway)
+  - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
   - [Configure database](#configure-database)
   - [Improve webpage](#improve-webpage)
   - [Test system and troubleshooting](#test-system-and-troubleshooting)
