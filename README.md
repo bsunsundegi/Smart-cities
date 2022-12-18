@@ -48,6 +48,8 @@ The operating system chosen for both the PC server and the PC gateway is Ubuntu 
 For the case of the PC server, Apache Web Server is installed to host the webpage that later will be used.
 
 The following guide was used to install the Apache Web Server: [Installing Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
+
+In the next picture it can bee seen that the web server has been well deployed
 ### Configure basic routing in PC gateway
 ### Configure basic routing in PC server
   
