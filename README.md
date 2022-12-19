@@ -52,10 +52,6 @@ The following guide was used to install the Apache Web Server: [Installing Apach
 In the next picture it can bee seen that the web server has been well deployed
 ![apache_desplegado](https://user-images.githubusercontent.com/73036899/208314731-f36bb996-685d-488f-9bd8-0089475fd43a.jpg)
 
-File: `gateway_iptables.sh`
-
-Directory: `~/1-Configure-global-structure`
-
 ### Configure basic routing in PC gateway
 
 File: `gateway_iptables.sh`
@@ -65,8 +61,10 @@ Directory: `~/1-Configure-global-structure`
 ### Configure basic routing in PC server
 
 File: `server_iptables.sh`
-
+    
 Directory: `~/1-Configure-global-structure`
+  
+1. Execute `gateway_iptables.sh` in PC gateway and `server_iptables.sh` in PC server and verify that both computers ping each other.
   
 </details>
   
