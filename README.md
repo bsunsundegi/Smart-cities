@@ -57,7 +57,16 @@ File: `gateway_iptables.sh`
 Directory: `~/1-Configure-global-structure`
 
 ### Configure basic routing in PC gateway
+
+File: `gateway_iptables.sh`
+
+Directory: `~/1-Configure-global-structure`
+
 ### Configure basic routing in PC server
+
+File: `server_iptables.sh`
+
+Directory: `~/1-Configure-global-structure`
   
 </details>
   
