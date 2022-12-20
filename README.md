@@ -76,6 +76,8 @@ Directory: `~/1-Configure-global-structure`
 
 File: `gateway_iptables.sh`
 
+Borrar tabla route: `sudo ip route flush all`
+
 ### Configure routing in PC gateway
 ### Configure routing in PC server
 ### Test system and troubleshooting
