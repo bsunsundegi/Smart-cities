@@ -74,7 +74,7 @@ Directory: `~/1-Configure-global-structure`
   
 ### Deploy access point
 
-File: `gateway_wifi.sh`
+File: `gateway_iptables.sh`
 
 ### Configure routing in PC gateway
 ### Configure routing in PC server
