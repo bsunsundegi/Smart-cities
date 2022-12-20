@@ -14,11 +14,7 @@ ifconfig $interface_internet 192.168.4.1 netmask 255.255.255.0
 echo "1" > /proc/sys/net/ipv4/ip_forward
 
 # Delete default routes
-ip route flush all
-
-# Configure routes
-route add default gw 192.168.4.1 $interface_internet
-ip route add 192.168.0.2 dev $interface_server
+route del -net 10.0.2.0 netmask 255.255.255.0 gw 0.0.0.0 dev enp0s3
 
 # Flush iptables
 iptables -t nat -F
