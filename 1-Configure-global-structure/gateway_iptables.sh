@@ -3,7 +3,7 @@ interface_server=enx000ec6c091fd
 interface_wlan=wlxe894f60b829a
 interface_internet=enp0s3
 
-# Configure IPs of the USB adapters
+# Configure IP address of the interfaces
 ifconfig $interface_server 192.168.0.1 netmask 255.255.255.0
 ifconfig enx000ec6c09233 192.168.1.1 netmask 255.255.255.0
 ifconfig enx000ec6c09237 192.168.2.1 netmask 255.255.255.0
