@@ -76,8 +76,6 @@ Directory: `~/1-Configure-global-structure`
 
 File: `gateway_wifi.sh`
 
-File: `common_flush.sh`
-
 ### Configure routing in PC gateway
 ### Configure routing in PC server
 ### Test system and troubleshooting
