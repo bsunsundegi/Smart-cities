@@ -100,7 +100,7 @@ Borrar tabla route: `sudo ip route flush all`
   
 ### Configure RaspberryPi
 ### Install camera
-[Install camera on Raspberry Pi] (https://es.scribd.com/document/255317122/Setting-Up-My-Raspberry-Pi-and-a-Logitech-C270-Webcam#)
+[Install camera on Raspberry Pi](https://es.scribd.com/document/255317122/Setting-Up-My-Raspberry-Pi-and-a-Logitech-C270-Webcam#)
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
 ### Configure streaming reception in PC server
