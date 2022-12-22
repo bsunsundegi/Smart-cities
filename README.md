@@ -137,11 +137,17 @@ First of all, to make this task easier, unplug the RaspberryPi and go to the con
 To test if the camera works, we install a simple camera software called guvcview.
   
 For this, open a terminal and execute the following command:
+ 
   `sudo apt-get update`
+  
   `sudo apt-get upgrade`
+  
   `sudo apt-get install guvcview`
+  
   `sudo usermod -G video pi`
+  
   `sudo modprobe uvcvideo`
+  
   `reboot`
   
 After rebooting the device, a new program should appear in the "sound and video" tab in the main menu called "guvcview".
