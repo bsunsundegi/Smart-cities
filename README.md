@@ -109,9 +109,9 @@ At first, the RaspberryPi only has the Raspbian image and the operating system g
 ![configtxt](https://user-images.githubusercontent.com/73036899/209112138-1d22a620-88e8-4885-ae45-ba7c84ab4c03.jpg)
 
 This files are commented with a '#' so just removing the '#' will be enough. The parameters that have to be uncommented are:
-  - hdmi_safe = 1
-  - hdmi_force_hotplug = 1
-  - hdmi_drive = 2
+  - `hdmi_safe = 1`
+  - `hdmi_force_hotplug = 1`
+  - `hdmi_drive = 2`
   
   
 ![hdmi](https://user-images.githubusercontent.com/73036899/209112929-2fbd5c7a-7e76-47b4-9afe-c42dfb6fbdaf.jpg)
@@ -137,8 +137,22 @@ First of all, to make this task easier, unplug the RaspberryPi and go to the con
 To test if the camera works, we install a simple camera software called guvcview.
   
 For this, open a terminal and execute the following command:
+  `sudo apt-get update`
+  `sudo apt-get upgrade`
+  `sudo apt-get install guvcview`
+  `sudo usermod -G video pi`
+  `sudo modprobe uvcvideo`
+  `reboot`
+  
+After rebooting the device, a new program should appear in the "sound and video" tab in the main menu called "guvcview".
+  
+![guvcview](https://user-images.githubusercontent.com/73036899/209123215-1f7f652f-4b16-4c4f-a97e-1c8cff6201fa.png)
+  
+Open it and the camera should appear automatically
+  
+![software_camara](https://user-images.githubusercontent.com/73036899/209123307-0df4950a-74ac-4a2f-baf3-dbe4a53c798e.png)
 
-[Install camera on Raspberry Pi](https://es.scribd.com/document/255317122/Setting-Up-My-Raspberry-Pi-and-a-Logitech-C270-Webcam#)
+  
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
 ### Configure streaming reception in PC server
