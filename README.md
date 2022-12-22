@@ -133,6 +133,10 @@ After this is done, the Raspberry will be configured and ready to use. If everyt
 ### Install camera
 First of all, to make this task easier, unplug the RaspberryPi and go to the config.txt file. Find the parameter camera_auto_detect=1 and uncomment it. This will make the RaspberryPi autodetect the camera without needing additional software or hardware.
 ![camera](https://user-images.githubusercontent.com/73036899/209114886-27a17085-ee40-46cc-9a0d-370d8bc7ed26.jpg)
+  
+To test if the camera works, we install a simple camera software called guvcview.
+  
+For this, open a terminal and execute the following command:
 
 [Install camera on Raspberry Pi](https://es.scribd.com/document/255317122/Setting-Up-My-Raspberry-Pi-and-a-Logitech-C270-Webcam#)
 ### Configure routing in PC gateway
