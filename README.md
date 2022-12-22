@@ -112,6 +112,8 @@ This files are commented with a '#' so just removing the '#' will be enough. The
   - hdmi_safe = 1
   - hdmi_force_hotplug = 1
   - hdmi_drive = 2
+  
+  
 ![hdmi](https://user-images.githubusercontent.com/73036899/209112929-2fbd5c7a-7e76-47b4-9afe-c42dfb6fbdaf.jpg)
 
 Once this parameters are uncommented, the RaspberryPi HDMI will work.
