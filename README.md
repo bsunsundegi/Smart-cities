@@ -47,11 +47,6 @@ During the implementation the following steps will be covered:
 The operating system chosen for both the PC server and the PC gateway is Ubuntu 22.04. Each one of these PCs are executed in different virtual machines.
 For the case of the PC server, Apache Web Server is installed to host the webpage that later will be used.
 
-The following guide was used to install the Apache Web Server: [Installing Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
-
-In the next picture it can bee seen that the web server has been well deployed
-![apache_desplegado](https://user-images.githubusercontent.com/73036899/208314731-f36bb996-685d-488f-9bd8-0089475fd43a.jpg)
-
 ### Configure basic routing in PC gateway
 
 File: `gateway_iptables.sh`
@@ -90,6 +85,12 @@ Borrar tabla route: `sudo ip route flush all`
 <summary>Open to see details</summary>
   
 ### Configure apache server
+
+The following guide was used to install the Apache Web Server: [Installing Apache Web Server](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-22-04)
+
+In the next picture it can bee seen that the web server has been well deployed
+![apache_desplegado](https://user-images.githubusercontent.com/73036899/208314731-f36bb996-685d-488f-9bd8-0089475fd43a.jpg)
+
 ### Design simple webpage
 
 </details>
