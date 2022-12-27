@@ -159,7 +159,7 @@ Open it and the camera should appear automatically
   
 ![software_camara](https://user-images.githubusercontent.com/73036899/209123307-0df4950a-74ac-4a2f-baf3-dbe4a53c798e.png)
 
-  
+Executing the file `gateway_iptables.sh` in the Raspberry Pi, the interface towards the gateway is defined and an IP is statically defined for the Raspberry.
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
 ### Configure streaming reception in PC server
