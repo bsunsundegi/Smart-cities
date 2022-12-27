@@ -160,6 +160,7 @@ Open it and the camera should appear automatically
 ![software_camara](https://user-images.githubusercontent.com/73036899/209123307-0df4950a-74ac-4a2f-baf3-dbe4a53c798e.png)
 
 Executing the file `webcam.sh` in the Raspberry Pi, the interface towards the gateway is defined and an IP is statically defined for the Raspberry.
+Another option is changing the configuration file `/etc/dhcpcd.conf` and setting the interface and IP manually, so that it is configured by default and there is no need to execute the file `webcam.sh` every time the Raspberry Pi is switched on.
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
 ### Configure streaming reception in PC server
