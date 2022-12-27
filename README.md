@@ -19,6 +19,7 @@ During the implementation the following steps will be covered:
   - [Test system and troubleshooting](#test-system-and-troubleshooting)
 - [Webpage](#webpage)
   - [Configure apache server](#configure-apache-server)
+  - [Configure nginx](#configure-nginx)
   - [Design simple webpage](#design-simple-webpage)
 - [Video surveillance](#video-surveillance)
   - [Configure RaspberryPi](#configure-raspberrypi)
@@ -91,6 +92,7 @@ The following guide was used to install the Apache Web Server: [Installing Apach
 In the next picture it can bee seen that the web server has been well deployed
 ![apache_desplegado](https://user-images.githubusercontent.com/73036899/208314731-f36bb996-685d-488f-9bd8-0089475fd43a.jpg)
 
+### Configure nginx
 ### Design simple webpage
 
 </details>
