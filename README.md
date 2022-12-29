@@ -94,6 +94,8 @@ In the next picture it can bee seen that the web server has been well deployed
 
 ### Configure nginx
 ### Design simple webpage
+![server_webpage](https://user-images.githubusercontent.com/73036899/209978766-0ec14590-6ca6-43f5-8864-235af8aa5e55.jpg)
+
 
 </details>
 
