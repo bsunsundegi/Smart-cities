@@ -94,9 +94,11 @@ In the next picture it can bee seen that the web server has been well deployed
 
 ### Configure nginx
 ### Design simple webpage
+If the admin wants to see data such as video surveillance, sensor data or the suggestions submitted by the users in the suggestion box, the webpage deployed for that would look like the following one:
+
 ![server_webpage](https://user-images.githubusercontent.com/73036899/209978766-0ec14590-6ca6-43f5-8864-235af8aa5e55.jpg)
 
-
+This page has three buttons. Each button corresponds to each one of the 3 possible types of data. If the admin would like to return back to the main page, it would be possible through the button that appears on screen when whichever button is pressed.
 </details>
 
 ## Video surveillance
