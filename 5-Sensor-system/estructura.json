@@ -1,0 +1,9 @@
+{
+    "id":"id",
+    "latitude":"latitude",
+    "longitude":"longitude",
+    "timestamp":"timestamp",
+    "temperature":"temperature",
+    "energy":"energy",
+    "status":"status"
+}
