@@ -1,5 +1,5 @@
 {
-    "id":"id",
+    "sensorid":"id",
     "latitude":"latitude",
     "longitude":"longitude",
     "timestamp":"timestamp",
