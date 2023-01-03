@@ -93,6 +93,16 @@ In the next picture it can bee seen that the web server has been well deployed
 ![apache_desplegado](https://user-images.githubusercontent.com/73036899/208314731-f36bb996-685d-488f-9bd8-0089475fd43a.jpg)
 
 ### Configure nginx
+To install Nginx, a terminal window must be opened to enter the following commands:
+
+`sudo apt update`
+
+`sudo apt install nginx`
+
+`sudo ufw allow Nginx Full`
+
+`sudo systemctl start nginx`
+
 ### Design simple webpage
 If the admin wants to see data such as video surveillance, sensor data or the suggestions submitted by the users in the suggestion box, the webpage deployed for that would look like the following one:
 
@@ -165,9 +175,18 @@ Open it and the camera should appear automatically
   
 ![software_camara](https://user-images.githubusercontent.com/73036899/209123307-0df4950a-74ac-4a2f-baf3-dbe4a53c798e.png)
 
-Executing the file `webcam.sh` in the Raspberry Pi, the interface towards the gateway is defined and an IP is statically defined for the Raspberry.
+To change the IP address of the raspberry, the configuration file `/etc/dhcpcd.conf` has to be modified so anytime the device is switched on it is configured by default and there is no need to execute any additional lines everytime.
 
-Another option is changing the configuration file `/etc/dhcpcd.conf` and setting the interface and IP manually, so that it is configured by default and there is no need to execute the file `webcam.sh` every time the Raspberry Pi is switched on.
+Now, to get the video from the webcam, Nginx and OBS studio must be installed in the Raspberry.
+
+To install OBS studio, Pi apps has to be installed firstly. For that, the following lines must be executed on a terminal.
+
+`sudo apt-get update`
+
+`wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash`
+
+When pi apps has finished the installation, click on execute, find OBS Studio and install it.
+
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
 ### Configure streaming reception in PC server
