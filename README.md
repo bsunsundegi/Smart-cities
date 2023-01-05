@@ -177,15 +177,29 @@ Open it and the camera should appear automatically
 
 To change the IP address of the raspberry, the configuration file `/etc/dhcpcd.conf` has to be modified so anytime the device is switched on it is configured by default and there is no need to execute any additional lines everytime.
 
-Now, to get the video from the webcam, Nginx and OBS studio must be installed in the Raspberry.
+Now, to get the video from the webcam, mjpg streamer must be installed. For this, open a terminal and enter the following commands:
 
-To install OBS studio, Pi apps has to be installed firstly. For that, the following lines must be executed on a terminal.
+`sudo apt update`
 
-`sudo apt-get update`
+`sudo apt install snapd`
 
-`wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash`
+`sudo reboot`
 
-When pi apps has finished the installation, click on execute, find OBS Studio and install it.
+`sudo snap install core`
+
+`sudo snap install mjpg-streamer`
+
+This will install a program that detects USB webcams and also serves as a streaming server.
+
+To start streaming video, a terminal must be opened in the Raspberry to enter the following command:
+
+`mjpg_streamer`
+
+To view the video, the html file that corresponds to the video surveillance must be modified. The line that should be added is the following one:
+
+`<img src="http://192.168.1.2:8080/?action=stream" width="1280" height="768" />`
+
+You should be able to see the video in real time.
 
 ### Configure routing in PC gateway
 ### Configure streaming reception in PC gateway
