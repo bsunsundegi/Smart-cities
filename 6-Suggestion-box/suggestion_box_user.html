@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Suggestion Box</title>
+	<link rel="stylesheet" href="index_suggestions.css">
+	<link rel="shortcut icon" href="favicon.png">
+</head>
+<body>
+    <div class="posicion-header">
+        <h1>Welcome to the suggestion box!</h1>
+    </div>
+    
+    <div class="posicion-suggestion">
+        <form action="/action_page.php">
+            <label for="fname">Asunto</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Mensaje</label>
+            <input type="text" id="lname" name="lname"><br><br>
+        </form>
+    </div>
+
+    <div class="posicion-suggestion2">
+        <fieldset>
+            <textarea placeholder="Suggestion" tabindex="5" name="suggestion_text" required></textarea>
+        </fieldset>
+    </div>
+    
+    <div class="posicion-boton-enviar">
+        <input type="button" value="Send suggestion" style="height:60px; width:110px" onclick="location.href='index.html'">
+    </div>
+    <div class="posicion-boton-main">
+        <input type="button" value="<- Back to Main" style="height:60px; width:110px" onclick="location.href='index.html'">
+    </div>
+</body> 
+</html>

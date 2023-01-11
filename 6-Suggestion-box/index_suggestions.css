@@ -34,6 +34,13 @@ body{
     color: white;
 }
 
+.posicion-suggestion2{
+    position: absolute;
+	top:400px;
+	left:500px;
+    color: white;
+}
+
 .posicion-boton-enviar{
 	position: absolute;
 	top:500px;
