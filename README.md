@@ -206,6 +206,7 @@ You should be able to see the video in real time.
 ### Configure streaming reception in PC server
 ### Improve webpage
 ### Test system and troubleshooting
+When connecting the Raspberry Pi to a PC monitor, it did not work using display port nor VGA, just using a HDMI-HDMI connection between them. In addition, in the 'config.txt' file the screen resolution needs to be changed, accordingly to monitor's resolution, in the parameter hdmi_mode; in our case a resolution of 640x480 was used.
 ### Security improvement
 
 </details>
