@@ -1,3 +1,23 @@
+<?php
+	$ip = "localhost";
+	$user = "smartcities";
+	$pass = "tecnun";
+	$database = "SMARTCITIES";
+	$connection = mysqli_connect($ip, $user, $pass, $database);
+
+	if($connection == false) {
+		echo "Connection failed";
+	}
+
+	$sensor_id = "20018-1";
+	$num_values = 25;
+
+	//$sql = "SELECT * FROM SENSORS WHERE SENSORID = '$sensor_id' ORDER BY REGISTER DESC LIMIT '$num_values';";
+	$sql = "SELECT * FROM SENSORS;";
+	$result = mysqli_query($connection, $sql);
+	
+?>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +28,7 @@
 
 	<body>
 		<h1>City light sensors</h1>
-		<p>Selected sensor: <?php echo $sensor_id;?></p>
+		<p>Selected sensor: 20018-1</p>
 		<table>
 			<tr>
 				<th>
@@ -25,23 +45,7 @@
 				</th>
 			</tr>
 			<?php
-				$ip = "localhost";
-				$user = "smartcities";
-				$pass = "tecnun";
-				$database = "SMARTCITIES";
-				$connection = mysqli_connect($ip, $user, $pass, $database);
-
-				if($connection == false) {
-					echo "Connection failed";
-				}
-
-				$sensor_id = $_POST["sensor_id"];
-				$num_values = 25;
-
-				$sql = "SELECT * FROM SENSORS WHERE SENSORID = '$sensor_id' ORDER BY REGISTER DESC LIMIT '$num_values';";
-				$result = mysqli_query($connection, $sql);
-				
-				if(mysqli_num_rows($result) == 1) {
+				if(mysqli_num_rows($result) > 0) {
 					while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 						echo "<tr><td>";
 						echo $row["TIMESTAMP"];

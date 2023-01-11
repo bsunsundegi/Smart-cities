@@ -8,6 +8,24 @@
 	<link rel="shortcut icon" href="favicon.png">
 </head>
 <body>
+
+	<?php
+		$servername = "localhost";
+		$username = "smartcities";
+		$password = "tecnun";
+		$dbname = "SMARTCITIES";
+		
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		  die("Connection failed: " . $conn->connect_error);
+		}
+		
+		$sql = "SELECT SENSORID, TIMESTAMP, TEMPERATURE FROM SENSORS";
+		$result = $conn->query($sql);
+	?>
+
 	<div class="video-card-container">
 		<div class="video-card">
 		<a href="index_video.html">
