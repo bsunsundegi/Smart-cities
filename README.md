@@ -39,6 +39,7 @@ During the implementation the following steps will be covered:
   - [Improve webpage](#improve-webpage)
   - [Test system and troubleshooting](#test-system-and-troubleshooting)
   - [Security improvement](#security-improvement)
+- [Suggestion box](#suggestion-box)
 
 ## Configure global structure
 <details>
@@ -224,4 +225,9 @@ When connecting the Raspberry Pi to a PC monitor, it did not work using display 
 ### Test system and troubleshooting
 ### Security improvement
   
+</details>
+
+## Suggestion box
+<details>
+<summary>Open to see details</summary>
 </details>
