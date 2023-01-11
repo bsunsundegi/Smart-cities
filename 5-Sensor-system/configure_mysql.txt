@@ -1,12 +1,15 @@
+# Start MySQL
 sudo service mysql start
 
+# Create smartcities user
 sudo mysql -u root -p
 
-# Inside
 CREATE USER 'smartcities'@'localhost' IDENTIFIED BY 'tecnun';
-exit
+EXIT;
 
-# With smartcities user
+# Login with smartcities user
+sudo mysql -u smartcities -p
+
 CREATE DATABASE SMARTCITIES;
 USE SMARTCITIES;
 
@@ -21,5 +24,4 @@ CREATE TABLE SENSORS (
     STATUS BIT(1)
 );
 
-# test
 INSERT INTO SENSORS (SENSORID, LATITUDE, LONGITUDE, TIMESTAMP, TEMPERATURE, ENERGY, STATUS) VALUES ('00000-1', 10.112233, -100.445566, '1000-01-01 00:00:00', 80, 70, 1);
