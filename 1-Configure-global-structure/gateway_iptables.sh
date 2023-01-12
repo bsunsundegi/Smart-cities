@@ -12,7 +12,7 @@ ifconfig $interface_sensors 192.168.2.1 netmask 255.255.255.0
 ifconfig $interface_wlan 192.168.3.1 netmask 255.255.255.0
 
 # Configure route from gateway to Raspberry (webcam)
-sudo ip route add 192.168.1.0/24 dev enp0s8
+sudo ip route add 192.168.1.0/24 dev $interface_server
 
 # Enable IP forwarding
 echo "1" > /proc/sys/net/ipv4/ip_forward
