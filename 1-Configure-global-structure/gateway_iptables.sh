@@ -3,7 +3,7 @@ interface_server=enx000ec6c091fd
 interface_webcam=enx000ec6c09233
 interface_sensors=enx000ec6c09237
 interface_wlan=wlxe894f60b829a
-interface_internet=enp0s3
+interface_internet=ens33
 
 # Configure IP address of the interfaces
 ifconfig $interface_server 192.168.0.1 netmask 255.255.255.0
