@@ -13,8 +13,15 @@ sudo apt-get install mysql-server -y
 sudo systemctl enable mysql
 
 # Install PHP
-sudo apt-get install php7.4
-sudo apt-get install php-mysql
-sudo apt-get install php7.4-mysql
+sudo apt-get install php7.4 -y
+sudo apt-get install php-mysql -y
+sudo apt-get install php7.4-mysql -y
 sudo service apache2 restart
 sudo service mysql restart
+
+# Install nifi
+echo 'After that check if Nifi is installed'
+
+# Java configuration
+sudo apt install default-jre -y
+export $JAVA_HOME = /usr/lib/jvm/java-11-openjdk-amd64
