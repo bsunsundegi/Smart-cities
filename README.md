@@ -5,6 +5,9 @@ This is the GitHub repository for the final practice of Smart cities. The author
 
 **Project Status:** `in progress`
 
+The Smart City network will be like the one shown below:
+![network_scheme](https://github.com/bsunsundegi/Smart-cities/blob/main/img/Network.png)
+
 ## Content index
 During the implementation the following steps will be covered:
 
