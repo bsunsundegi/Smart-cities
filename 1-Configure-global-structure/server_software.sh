@@ -22,6 +22,6 @@ sudo service mysql restart
 # Install nifi
 echo 'After that check if Nifi is installed'
 
-# Java configuration
+# Install and configure Java
 sudo apt install default-jre -y
 export $JAVA_HOME = /usr/lib/jvm/java-11-openjdk-amd64
