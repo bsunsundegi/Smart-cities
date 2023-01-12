@@ -57,10 +57,8 @@
 						echo $row["STATUS"];
 						echo "</td></tr>";
 					}
-					echo "</table>";
 				}
 				else {
-					echo "</table>";
 					echo "Error. The data is not available.";
 				}
 			?>
