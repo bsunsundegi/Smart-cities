@@ -27,6 +27,29 @@
 	</head>
 
 	<body>
+		<div class="video-card-container">
+			<div class="video-card">
+				<a href="index_video.html">
+					<img src="video.png" class="video-card-image" alt="" size="fill">
+				</a>
+				Video Surveillance
+			</div>
+
+			<div class="video-card">
+				<a href="index_sensor.html">
+					<img src="sensor.png" class="video-card-image" alt="" size="fill">
+				</a>
+				Sensors
+			</div>
+
+			<div class="video-card">
+				<a href="index_suggestion.html">
+					<img src="suggestions.png" class="video-card-image" alt="" size="fill">
+				</a>
+				Suggestions
+			</div>
+		</div>
+		
 		<h1>City light sensors</h1>
 		<p>Selected sensor: 20018-1</p>
 		<table>
@@ -63,5 +86,9 @@
 				}
 			?>
 		</table>
+		
+		<div class="posicion-boton">
+			<input type="button" value="<- Back to Main" style="height:60px; width:110px" onclick="location.href='index.html'">
+		</div>
 	</body>
 </html>
