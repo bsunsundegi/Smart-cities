@@ -16,7 +16,7 @@
     $txtMessage = $_POST['txtMessage'];
 
     // Database insert SQL code
-    $sql = "INSERT INTO `SUGGESTIONS` (`ID`, `Name`, `Email`, `Issue`, `Message`) VALUES ('0', '$txtName', '$txtEmail', '$txtIssue', '$txtMessage')";
+    $sql = "INSERT INTO `SUGGESTIONS` (`Name`, `Email`, `Issue`, `Message`) VALUES ('$txtName', '$txtEmail', '$txtIssue', '$txtMessage')";
 
     // Insert in database 
     $rs = mysqli_query($connection, $sql);
