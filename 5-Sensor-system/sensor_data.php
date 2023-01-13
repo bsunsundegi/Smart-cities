@@ -2,7 +2,7 @@
 	$ip = "localhost";
 	$user = "smartcities";
 	$pass = "tecnun";
-	$database = "SMARTCITIES";
+	$database = "DONOSTIA";
 	$connection = mysqli_connect($ip, $user, $pass, $database);
 
 	if($connection == false) {
@@ -15,7 +15,6 @@
 	//$sql = "SELECT * FROM SENSORS WHERE SENSORID = '$sensor_id' ORDER BY REGISTER DESC LIMIT '$num_values';";
 	$sql = "SELECT * FROM SENSORS;";
 	$result = mysqli_query($connection, $sql);
-	
 ?>
 
 <html>
@@ -71,13 +70,13 @@
 				if(mysqli_num_rows($result) > 0) {
 					while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 						echo "<tr><td>";
-						echo $row["TIMESTAMP"];
+						echo $row["DATETIME"];
 						echo "</td><td>";
 						echo $row["TEMPERATURE"];
 						echo "</td><td>";
 						echo $row["ENERGY"];
 						echo "</td><td>";
-						echo $row["STATUS"];
+						echo $row["LIGHTSTATUS"];
 						echo "</td></tr>";
 					}
 				}
