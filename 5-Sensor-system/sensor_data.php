@@ -28,21 +28,21 @@
 	<body>
 		<div class="video-card-container">
 			<div class="video-card">
-				<a href="index_video.html">
+				<a href="video.html">
 					<img src="video.png" class="video-card-image" alt="" size="fill">
 				</a>
 				Video Surveillance
 			</div>
 
 			<div class="video-card">
-				<a href="index_sensor.html">
+				<a href="sensor_selection.html">
 					<img src="sensor.png" class="video-card-image" alt="" size="fill">
 				</a>
 				Sensors
 			</div>
 
 			<div class="video-card">
-				<a href="index_suggestion.html">
+				<a href="suggestions.html">
 					<img src="suggestions.png" class="video-card-image" alt="" size="fill">
 				</a>
 				Suggestions
