@@ -3,6 +3,7 @@ body {
 	background: #193263;
 	position: relative;
 	font-family: roboto, sans-serif;
+	color: rgba(255, 255, 255, 1);
 }
 
 .video-card-container {
