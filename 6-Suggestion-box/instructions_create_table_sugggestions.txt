@@ -1,8 +1,0 @@
-CREATE TABLE SUGGESTIONS (
-	ID INT NOT NULL AUTO_INCREMENT,
-	Name varchar(30),
-	Email varchar(100),
-	Issue varchar(100),
-	Message varchar(255),
-	PRIMARY KEY (ID)
-);
