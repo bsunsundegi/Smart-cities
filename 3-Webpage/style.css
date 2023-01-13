@@ -46,10 +46,8 @@ body {
 }
 
 .centered-position {
-	position: absolute;
-	top: 180px;
-	/*left: 550px; para 1080p*/
-	left: 250px;
+	text-align: center;
+	margin-top: 50px;
 }
 
 .posicion-boton {
