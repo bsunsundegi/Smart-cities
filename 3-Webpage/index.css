@@ -84,3 +84,15 @@ td, th {
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+.text{
+	color: white;
+}
+
+textarea{
+	resize: none;
+}
+
+label {
+    vertical-align: top;
+}
