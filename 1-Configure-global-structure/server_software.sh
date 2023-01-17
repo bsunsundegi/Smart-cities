@@ -13,9 +13,8 @@ sudo apt-get install mysql-server -y
 sudo systemctl enable mysql
 
 # Install PHP
-sudo apt-get install php7.4 -y
+sudo apt-get install php -y
 sudo apt-get install php-mysql -y
-sudo apt-get install php7.4-mysql -y
 sudo service apache2 restart
 sudo service mysql restart
 
