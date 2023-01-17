@@ -21,3 +21,28 @@ iptables -t mangle -F
 
 # Apply NAT to the traffic of the user to Internet
 iptables -t nat -A POSTROUTING -o $interface_host -j MASQUERADE
+
+# Iptables configuration
+
+# Users to PC_Server
+iptables -t filter -A INPUT -i $interface_wlan -p http -j ACCEPT
+iptables -t filter -A OUTPUT -o $interface_wlan -p http -j ACCEPT
+iptables -t filter -A FORWARD -i $interface_wlan -o $interface_server -p http -j ACCEPT
+iptables -t filter -A FORWARD -i $interface_server -o $interface_wlan -p http -j ACCEPT
+
+# Users to internet
+iptables -t filter -A FORWARD -i $interface_wlan -o $interface_host -j ACCEPT
+iptables -t filter -A FORWARD -i $interface_host -o $interface_wlan -j ACCEPT
+
+# Sensors to GT (MQTT)
+iptables -t filter -A INPUT -i $interface_sensors -j ACCEPT
+#iptables -t filter -A OUTPUT -o $interface_sensors --tcp-flags ACK -j ACCEPT		# Check if that works well
+#iptables -t filter -A OUTPUT -o $interface_sensors -j DROP
+
+# Video to Server
+iptables -f filter -A FORWARD -i $interface_server -o $interface_webcam -p http -j ACCEPT
+iptables -f filter -A FORWARD -i $interface_webcam -o $interface_server -p http -j ACCEPT
+
+# Deny others
+iptables -f filter -A FORWARD -j DROP
+iptables -f filter -A INPUT -j DROP
