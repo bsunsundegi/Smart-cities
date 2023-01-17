@@ -25,3 +25,9 @@ echo 'After that check if Nifi is installed'
 # Install and configure Java
 sudo apt install default-jre -y
 export $JAVA_HOME = /usr/lib/jvm/java-11-openjdk-amd64
+
+# Configure Wireshark
+sudo dpkg-reconfigure wireshark-common
+# Click yes
+sudo adduser $USER wireshark
+# Restart virtual machine
