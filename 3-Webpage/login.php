@@ -26,6 +26,7 @@
 			}
 			else {
 				header("Location: home_user.html");
+			}
 		}
 		else {
 			header("Location: login_error.html");
