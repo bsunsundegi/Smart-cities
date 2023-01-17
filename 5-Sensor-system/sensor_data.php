@@ -9,11 +9,10 @@
 		echo "Connection failed";
 	}
 
-	$sensor_id = "20018-1";
 	$num_values = 25;
+	$sensor_id = $_POST["sensor_id"];
 
-	//$sql = "SELECT * FROM SENSORS WHERE SENSORID = '$sensor_id' ORDER BY REGISTER DESC LIMIT '$num_values';";
-	$sql = "SELECT * FROM SENSORS;";
+	$sql = "SELECT * FROM SENSORS WHERE SENSORID = '$sensor_id' ORDER BY REGISTERID DESC LIMIT $num_values;";
 	$result = mysqli_query($connection, $sql);
 ?>
 
@@ -35,7 +34,7 @@
 			</div>
 
 			<div class="video-card">
-				<a href="sensor_selection.html">
+				<a href="sensor_selection.php">
 					<img src="img/sensors.png" class="video-card-image" alt="" size="fill">
 				</a>
 				Sensors
@@ -48,9 +47,9 @@
 				Suggestions
 			</div>
 		</div>
-		
+
 		<h1>City light sensors</h1>
-		<p>Selected sensor: 20018-1</p>
+		<p>Selected sensor: <?php echo $sensor_id; ?></p>
 		<table>
 			<tr>
 				<th>
@@ -70,13 +69,13 @@
 				if(mysqli_num_rows($result) > 0) {
 					while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 						echo "<tr><td>";
-						echo $row["DATETIME"];
+						echo $row["TIMESTAMP"];
 						echo "</td><td>";
 						echo $row["TEMPERATURE"];
 						echo "</td><td>";
 						echo $row["ENERGY"];
 						echo "</td><td>";
-						echo $row["LIGHTSTATUS"];
+						echo $row["STATUS"];
 						echo "</td></tr>";
 					}
 				}
@@ -85,7 +84,7 @@
 				}
 			?>
 		</table>
-		
+
 		<div class="posicion-boton">
 			<input type="button" value="<- Back to Main" style="height:60px; width:110px" onclick="location.href='index.html'">
 		</div>
