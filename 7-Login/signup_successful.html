@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<title>Login</title>
+	</head>
+	<body>
+		<main>
+			<div class="titulo">
+	                        <h3 class="titulo">Login</h3>
+	                </div>
+			<p>The user has been successfully registered.</p>
+			<p>Please, introduce your username and password.</p>
+	                <form action="login.php" method="post">
+	                        <div class="fila">
+	                                <label>Username:</label>
+	                                <input type="text" name="username" placeholder="Username">
+	                        </div>
+	                        <br>
+	                        <div class="fila">
+	                                <label>Password:</label>
+	                                <input type="password" name="password" placeholder="Password">
+	                        </div>
+	                        <br>
+	                        <div class="button">
+	                                <button class="button" type="submit">Login</button>
+	                        </div>
+	                </form>
+	                <p>If you haven't signed up yet, click the following button.</p>
+	                <form action="signup.html" method="post">
+	                        <div class="button">
+	                                <button class="button" type="submit">Sign up</button>
+	                        </div>
+	                </form>
+		</main>
+	</body>
+</html>
