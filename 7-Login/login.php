@@ -26,7 +26,7 @@
 				header("Location: home_admin.html");
 			}
 			else {
-				header("Location: home_user.html");
+				header("Location: user_home.html");
 			}
 		}
 		else {
