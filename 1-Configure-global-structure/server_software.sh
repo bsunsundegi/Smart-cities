@@ -19,7 +19,8 @@ sudo service apache2 restart
 sudo service mysql restart
 
 # Install and configure NiFi
-echo 'After that check if NiFi is installed'
+# Download TAR file and extract it
+nifi-1.19.1/bin/nifi.sh set-single-user-credentials smartcities tecnun
 
 # Install and configure Java
 sudo apt install default-jre -y
