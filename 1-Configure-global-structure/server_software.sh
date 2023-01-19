@@ -20,7 +20,7 @@ sudo service mysql restart
 
 # Install and configure NiFi
 # Download TAR file and extract it
-nifi-1.19.1/bin/nifi.sh set-single-user-credentials smartcities tecnun
+nifi-1.19.1/bin/nifi.sh set-single-user-credentials smartcities tecnuntecnun
 
 # Install and configure Java
 sudo apt install default-jre -y
