@@ -18,8 +18,8 @@ sudo apt-get install php-mysql -y
 sudo service apache2 restart
 sudo service mysql restart
 
-# Install nifi
-echo 'After that check if Nifi is installed'
+# Install and configure NiFi
+echo 'After that check if NiFi is installed'
 
 # Install and configure Java
 sudo apt install default-jre -y
