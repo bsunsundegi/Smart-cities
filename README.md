@@ -19,7 +19,7 @@ During the implementation the following steps will be covered:
     - [Software installation in PC server and gateway](#software-installation-in-pc-server-and-gateway)
     - [Configure iptables in PC server and gateway](#configure-iptables-in-pc-server-and-gateway)
     - [Configure QoS in PC server and gateway](#configure-qos-in-pc-server-and-gateway)
-  - [WiFi access point](#sensor-system)
+  - [WiFi access point](#wifi-access-point)
     - [Configure dnsmasq](#configure-dnsmasq)
     - [Configure hostapd](#configure-hostapd)
     - [WiFi service start](#wifi-service-start)
@@ -29,21 +29,21 @@ During the implementation the following steps will be covered:
   - [Video surveillance](#video-surveillance)
     - [Configure RaspberryPi](#configure-raspberrypi)
     - [Install camera](#install-camera)
-    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway-1)
+    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
     - [Configure streaming reception in PC gateway](#configure-streaming-reception-in-pc-gateway)
     - [Configure streaming reception in PC server](#configure-streaming-reception-in-pc-server)
     - [Improve webpage](#improve-webpage)
-    - [Test system and troubleshooting](#test-system-and-troubleshooting-1)
+    - [Test system and troubleshooting](#test-system-and-troubleshooting)
     - [Security improvement](#security-improvement)
   - [Sensor system](#sensor-system)
     - [Configure RaspberryPi](#configure-raspberrypi-1)
     - [Install sensors software](#install-sensors-software)
     - [Configure apache MiNiFi](#configure-apache-minifi)
     - [NiFi program](#nifi-program)
-    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway-2)
+    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway-1)
     - [Configure database](#configure-database)
     - [Improve webpage](#improve-webpage-1)
-    - [Test system and troubleshooting](#test-system-and-troubleshooting-2)
+    - [Test system and troubleshooting](#test-system-and-troubleshooting-1)
     - [Security improvement](#security-improvement-1)
   - [Suggestion box](#suggestion-box)
 
@@ -239,7 +239,7 @@ The MQTT publisher and subscriber were created using NiFi.
 Publisher works with three street lights sending data over MQTT to the Server PC using Gateway PC path.
 ![NiFi](img/nifi_publishers.jpg)
 
-Each process has the same structure, using three blocks conforming a JSON which will be sent to the server. The JSON structure is represented in `5-Sensos-system/
+Each process has the same structure, using three blocks conforming a JSON which will be sent to the server. The JSON structure is represented in `5-Sensos-system/estructure.json`.
 ![Publisher_1](img/nifi_publishers2.jpg)
 
 This proccess saves the data to a MySQL database but during the proccess it extract the JSON data and updates the DATETIME atribute to a `YYYY-MM-DD HH:mm:ss` format.
@@ -253,24 +253,30 @@ The PC gateway was already configured to allow routing throwards the machine. It
 The database was MySQL database. The install is `sudo apt install mysql-server` and the access to the DB is `sudo mysql -u smartcities -p`.
 The database was made following the next structure:
 ```sql
-CREATE TABLE SENSORS (
-      REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
-      SENSORID VARCHAR(25),
-      LATITUDE DECIMAL(8, 6),
-      LONGITUDE DECIMAL(9, 6),
-      DATETIME DATETIME,
-      TEMPERATURE INT(3),
-      ENERGY INT(3),
-      LIGHTSTATUS BIT(1)
-    );
+  CREATE TABLE SENSORS (
+    REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
+    SENSORID VARCHAR(25),
+    LATITUDE DECIMAL(8, 6),
+    LONGITUDE DECIMAL(9, 6),
+    DATETIME DATETIME,
+    TEMPERATURE INT(3),
+    ENERGY INT(3),
+    LIGHTSTATUS BIT(1)
+  );
 ```
 
 ### Improve webpage
+In the webpage was added a php file that makes a query to the database for knowing the IDs of the sensors inside the database. Then other php file do another query which shows the data from the last 2 weeks in order from most recent to the oldest.
 
 ### Test system and troubleshooting
 
+During the testing ocurred multiple errors that were solved as:
+
+1. MiNiFi needs to have java-8-openjdk installed, the latest version (java-11-openjdk) doesn't work. That generates errors during the transformation from `xml` to `yml`.
+2. Once the template is transformed and correctly moved to the path, the aplication needs an extra package for sending the MQTT messages, that package is `nifi-mqtt-nar-X.X.X.nar`.
+
 ### Security improvement
-  
+
 </details>
 
 ## Suggestion box
