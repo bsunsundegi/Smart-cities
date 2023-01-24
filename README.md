@@ -13,8 +13,9 @@ During the implementation the following steps will be covered:
 
 - [Configure global structure](#configure-global-structure)
   - [Initiate PC server and gateway](#initiate-pc-server-and-gateway)
-  - [Configure basic routing in PC gateway](#configure-basic-routing-in-pc-gateway)
-  - [Configure basic routing in PC server](#configure-basic-routing-in-pc-server)
+  - [Software installation in PC server and gateway](#software-installation-in-pc-server-and-gateway)
+  - [Configure iptables in PC server and gateway](#configure-iptables-in-pc-server-and-gateway)
+  - [Configure QoS in PC server and gateway](#configure-qos-in-pc-server-and-gateway)
 - [WiFi access point](#sensor-system)
   - [Configure dnsmasq](#configure-dnsmasq)
   - [Configure hostapd](#configure-hostapd)
@@ -47,23 +48,22 @@ During the implementation the following steps will be covered:
 <summary>Open to see details</summary>
   
 ### Initiate PC server and gateway
+
 The operating system chosen for both the PC server and the PC gateway is Ubuntu 22.04. Each one of these PCs are executed in different virtual machines.
 For the case of the PC server, Apache Web Server is installed to host the webpage that later will be used.
 
-### Configure basic routing in PC gateway
+### Software installation in PC server and gateway
 
-File: `gateway_iptables.sh`
+After launching the virtual machines for server and gateway, some software kit has to be installed. It is recommended to use the two scripts that are located in `~/1-Configure-global-structure`, named `gateway_software.sh` and `server_software.sh`. Execute them and accept when asked in the installation process.
 
-Directory: `~/1-Configure-global-structure`
+### Configure iptables in PC server and gateway
 
-### Configure basic routing in PC server
+Afterwards, the iptables are configured. In the gateway side the 5 interfaces are defined (server, webcam, sensors, WiFi and Internet), each one with a given IP. Then, some iptable rules are added, according to each of the 5 services. The file is again in the first folder with the name `gateway_iptables.sh`. On the other side, the iptables configuration file for the server will be `server_iptables.sh`; run both scripts and verify that there are no errors.
 
-File: `server_iptables.sh`
+### Configure QoS in PC server and gateway
+
+Lastly, a QoS configuration is made, to distribute the available bandwith between the different processes. In the gateway side, the uplink traffic to the server is limited to 1 Mbps, while the downlink is limited to 5 Mbps. Regarding the server, the downlink traffic is 20 Mbps. The file `gateway_qdisc.sh` was already executed when running `gateway_iptables.sh`, so executing `server_qdisc.sh` is enough. Verify, once again, that you do not receive any error.
     
-Directory: `~/1-Configure-global-structure`
-  
-1. Execute `gateway_iptables.sh` in PC gateway and `server_iptables.sh` in PC server and verify that both computers ping each other.
-  
 </details>
   
 ## WiFi access point
@@ -85,7 +85,6 @@ Finally, when both the DNS/DHCP and the access point have been configured, they 
 </details>
 
 ## Webpage
-[Webpage link](https://www.smartcities.fun)
 <details>
 <summary>Open to see details</summary>
   
