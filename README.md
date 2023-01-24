@@ -11,37 +11,41 @@ The Smart City network will be like the one shown below:
 ## Content index
 During the implementation the following steps will be covered:
 
-- [Configure global structure](#configure-global-structure)
-  - [Initiate PC server and gateway](#initiate-pc-server-and-gateway)
-  - [Configure basic routing in PC gateway](#configure-basic-routing-in-pc-gateway)
-  - [Configure basic routing in PC server](#configure-basic-routing-in-pc-server)
-- [WiFi access point](#sensor-system)
-  - [Deploy access point](#deploy-access-point)
-  - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-  - [Configure routing in PC server](#configure-routing-in-pc-server)
-  - [Test system and troubleshooting](#test-system-and-troubleshooting)
-- [Webpage](#webpage)
-  - [Configure apache server](#configure-apache-server)
-  - [Design simple webpage](#design-simple-webpage)
-- [Video surveillance](#video-surveillance)
-  - [Configure RaspberryPi](#configure-raspberrypi)
-  - [Install camera](#install-camera)
-  - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-  - [Configure streaming reception in PC gateway](#configure-streaming-reception-in-pc-gateway)
-  - [Configure streaming reception in PC server](#configure-streaming-reception-in-pc-server)
-  - [Improve webpage](#improve-webpage)
-  - [Test system and troubleshooting](#test-system-and-troubleshooting)
-  - [Security improvement](#security-improvement)
-- [Sensor system](#sensor-system)
-  - [Configure RaspberryPi](#configure-raspberrypi)
-  - [Install sensors software](#install-sensors-software)
-  - [Configure apache MiNiFi](#configure-apache-minifi)
-  - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-  - [Configure database](#configure-database)
-  - [Improve webpage](#improve-webpage)
-  - [Test system and troubleshooting](#test-system-and-troubleshooting)
-  - [Security improvement](#security-improvement)
-- [Suggestion box](#suggestion-box)
+- [Smart cities](#smart-cities)
+  - [Description](#description)
+  - [Content index](#content-index)
+  - [Configure global structure](#configure-global-structure)
+    - [Initiate PC server and gateway](#initiate-pc-server-and-gateway)
+    - [Configure basic routing in PC gateway](#configure-basic-routing-in-pc-gateway)
+    - [Configure basic routing in PC server](#configure-basic-routing-in-pc-server)
+  - [WiFi access point](#wifi-access-point)
+    - [Deploy access point](#deploy-access-point)
+    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
+    - [Configure routing in PC server](#configure-routing-in-pc-server)
+    - [Test system and troubleshooting](#test-system-and-troubleshooting)
+  - [Webpage](#webpage)
+    - [Configure apache server](#configure-apache-server)
+    - [Design simple webpage](#design-simple-webpage)
+  - [Video surveillance](#video-surveillance)
+    - [Configure RaspberryPi](#configure-raspberrypi)
+    - [Install camera](#install-camera)
+    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway-1)
+    - [Configure streaming reception in PC gateway](#configure-streaming-reception-in-pc-gateway)
+    - [Configure streaming reception in PC server](#configure-streaming-reception-in-pc-server)
+    - [Improve webpage](#improve-webpage)
+    - [Test system and troubleshooting](#test-system-and-troubleshooting-1)
+    - [Security improvement](#security-improvement)
+  - [Sensor system](#sensor-system)
+    - [Configure RaspberryPi](#configure-raspberrypi-1)
+    - [Install sensors software](#install-sensors-software)
+    - [Configure apache MiNiFi](#configure-apache-minifi)
+    - [NiFi program](#nifi-program)
+    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway-2)
+    - [Configure database](#configure-database)
+    - [Improve webpage](#improve-webpage-1)
+    - [Test system and troubleshooting](#test-system-and-troubleshooting-2)
+    - [Security improvement](#security-improvement-1)
+  - [Suggestion box](#suggestion-box)
 
 ## Configure global structure
 <details>
@@ -210,16 +214,61 @@ When connecting the Raspberry Pi to a PC monitor, it did not work using display 
 </details>
 
 ## Sensor system
+A Raspberry Pi simulates multiple data sensors that will be send to the PC Server using MQTT. The PC Server saves the new data in a MySQL database and the webpage can get the data from there.
 <details>
 <summary>Open to see details</summary>
   
 ### Configure RaspberryPi
-### Install sensors software 
+The OS of the Raspberry Pi was downloaded from the official web page and was installed using a Windows PC with a USB, writting the OS on a memory card. Then the memory is inserted on the raspberry and turned it on.
+
+The next step is to configure the routing by inserting the IP commented on the scheme.
+
+### Install sensors software
+For the software it is necessary to install java with the order `sudo apt install java-8-openjdk`. After that it is necessary to set the global variable using `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk`, this will help minifi when running.
+It is also required an MQTT package with `sudo apt install mosquitto-clients`. This allowed us to test the program while running and setting the conections.
+
 ### Configure apache MiNiFi
+MiNiFi is a lighter version of NiFi that consumes much less resources. This allows the Raspberry Pi to execute some flows created on NiFi. For downloading MiNiFi: `wget https://dlcdn.apache.org/nifi/1.19.1/minifi-1.19.1-bin.zip`, after decompressing the program it is necessary to import the `config.yml` file.
+NiFi exports templates in format `xml`, but MiNiFi needs a `yml` and for that it is necessary to also install MiNiFi toolkit with `wget https://dlcdn.apache.org/nifi/1.19.1/minifi-toolkit-1.19.1-bin.zip` and decompressing that zip to. Once the toolkit is ready the command while staying on the main folder of the program on root user: `./bin/config.sh transform <input_file.xml> <output_file.yml>`. The last step is the move the new `yml` file to the folder `${minifi_path}/conf/config.yml`.
+
+With the program ready to be executed: `./bin/minifi.sh start` being on the root folder of the minifi download.
+
+### NiFi program
+The MQTT publisher and subscriber were created using NiFi.
+
+Publisher works with three street lights sending data over MQTT to the Server PC using Gateway PC path.
+![NiFi](img/nifi_publishers.jpg)
+
+Each process has the same structure, using three blocks conforming a JSON which will be sent to the server. The JSON structure is represented in `5-Sensos-system/
+![Publisher_1](img/nifi_publishers2.jpg)
+
+This proccess saves the data to a MySQL database but during the proccess it extract the JSON data and updates the DATETIME atribute to a `YYYY-MM-DD HH:mm:ss` format.
+![Subscriber](img/nifi_subscriber.jpg)
+
 ### Configure routing in PC gateway
+
+The PC gateway was already configured to allow routing throwards the machine. It also has installed the mosquitto package because the PC is the broker which join the publishers and the subscribers of the protocol.
+
 ### Configure database
+The database was MySQL database. The install is `sudo apt install mysql-server` and the access to the DB is `sudo mysql -u smartcities -p`.
+The database was made following the next structure:
+```sql
+CREATE TABLE SENSORS (
+      REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
+      SENSORID VARCHAR(25),
+      LATITUDE DECIMAL(8, 6),
+      LONGITUDE DECIMAL(9, 6),
+      DATETIME DATETIME,
+      TEMPERATURE INT(3),
+      ENERGY INT(3),
+      LIGHTSTATUS BIT(1)
+    );
+```
+
 ### Improve webpage
+
 ### Test system and troubleshooting
+
 ### Security improvement
   
 </details>
