@@ -16,13 +16,13 @@ During the implementation the following steps will be covered:
   - [Content index](#content-index)
   - [Configure global structure](#configure-global-structure)
     - [Initiate PC server and gateway](#initiate-pc-server-and-gateway)
-    - [Configure basic routing in PC gateway](#configure-basic-routing-in-pc-gateway)
-    - [Configure basic routing in PC server](#configure-basic-routing-in-pc-server)
-  - [WiFi access point](#wifi-access-point)
-    - [Deploy access point](#deploy-access-point)
-    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-    - [Configure routing in PC server](#configure-routing-in-pc-server)
-    - [Test system and troubleshooting](#test-system-and-troubleshooting)
+    - [Software installation in PC server and gateway](#software-installation-in-pc-server-and-gateway)
+    - [Configure iptables in PC server and gateway](#configure-iptables-in-pc-server-and-gateway)
+    - [Configure QoS in PC server and gateway](#configure-qos-in-pc-server-and-gateway)
+  - [WiFi access point](#sensor-system)
+    - [Configure dnsmasq](#configure-dnsmasq)
+    - [Configure hostapd](#configure-hostapd)
+    - [WiFi service start](#wifi-service-start)
   - [Webpage](#webpage)
     - [Configure apache server](#configure-apache-server)
     - [Design simple webpage](#design-simple-webpage)
@@ -52,43 +52,43 @@ During the implementation the following steps will be covered:
 <summary>Open to see details</summary>
   
 ### Initiate PC server and gateway
+
 The operating system chosen for both the PC server and the PC gateway is Ubuntu 22.04. Each one of these PCs are executed in different virtual machines.
 For the case of the PC server, Apache Web Server is installed to host the webpage that later will be used.
 
-### Configure basic routing in PC gateway
+### Software installation in PC server and gateway
 
-File: `gateway_iptables.sh`
+After launching the virtual machines for server and gateway, some software kit has to be installed. It is recommended to use the two scripts that are located in `~/1-Configure-global-structure`, named `gateway_software.sh` and `server_software.sh`. Execute them and accept when asked in the installation process.
 
-Directory: `~/1-Configure-global-structure`
+### Configure iptables in PC server and gateway
 
-### Configure basic routing in PC server
+Afterwards, the iptables are configured. In the gateway side the 5 interfaces are defined (server, webcam, sensors, WiFi and Internet), each one with a given IP. Then, some iptable rules are added, according to each of the 5 services. The file is again in the first folder with the name `gateway_iptables.sh`. On the other side, the iptables configuration file for the server will be `server_iptables.sh`; run both scripts and verify that there are no errors.
 
-File: `server_iptables.sh`
+### Configure QoS in PC server and gateway
+
+Lastly, a QoS configuration is made, to distribute the available bandwith between the different processes. In the gateway side, the uplink traffic to the server is limited to 1 Mbps, while the downlink is limited to 5 Mbps. Regarding the server, the downlink traffic is 20 Mbps. The file `gateway_qdisc.sh` was already executed when running `gateway_iptables.sh`, so executing `server_qdisc.sh` is enough. Verify, once again, that you do not receive any error.
     
-Directory: `~/1-Configure-global-structure`
-  
-1. Execute `gateway_iptables.sh` in PC gateway and `server_iptables.sh` in PC server and verify that both computers ping each other.
-  
 </details>
   
 ## WiFi access point
 <details>
 <summary>Open to see details</summary>
   
-### Deploy access point
+### Configure dnsmasq
 
-File: `gateway_iptables.sh`
+The first step of the WiFi access point will be configuring a DNS and DHCP server; for that purpose dnsmasq will be used. In the configuration file the interface is set to `wlan`, binding interface is enabled and a DHCP range is defined according to the general network scheme. Then, go to`~/2-WiFi-access-point` and execute the file `dnsmasq.conf`.
+  
+### Configure hostapd
+  
+Second, the access point needs to be implemented. Parameters like channel, password, interface are defined in the configuration file. Now again, go to `~/2-WiFi-access-point` and execute the file `hostapd.conf`.
+  
+### WiFi service start
 
-Borrar tabla route: `sudo ip route flush all`
-
-### Configure routing in PC gateway
-### Configure routing in PC server
-### Test system and troubleshooting
+Finally, when both the DNS/DHCP and the access point have been configured, they need to be started. Optionally, use from the same directory the script `wifi.sh`, that will do this task automatically when executed.
 
 </details>
 
 ## Webpage
-[Webpage link](https://www.smartcities.fun)
 <details>
 <summary>Open to see details</summary>
   
@@ -253,20 +253,19 @@ The PC gateway was already configured to allow routing throwards the machine. It
 The database was MySQL database. The install is `sudo apt install mysql-server` and the access to the DB is `sudo mysql -u smartcities -p`.
 The database was made following the next structure:
 ```sql
-  CREATE TABLE SENSORS (
-    REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
-    SENSORID VARCHAR(25),
-    LATITUDE DECIMAL(8, 6),
-    LONGITUDE DECIMAL(9, 6),
-    DATETIME DATETIME,
-    TEMPERATURE INT(3),
-    ENERGY INT(3),
-    LIGHTSTATUS BIT(1)
-  );
+CREATE TABLE SENSORS (
+      REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
+      SENSORID VARCHAR(25),
+      LATITUDE DECIMAL(8, 6),
+      LONGITUDE DECIMAL(9, 6),
+      DATETIME DATETIME,
+      TEMPERATURE INT(3),
+      ENERGY INT(3),
+      LIGHTSTATUS BIT(1)
+    );
 ```
 
 ### Improve webpage
-In the webpage was added a php file that makes a query to the database for knowing the IDs of the sensors inside the database. Then other php file do another query which shows the data from the last 2 weeks in order from most recent to the oldest.
 
 ### Test system and troubleshooting
 
