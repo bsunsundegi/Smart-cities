@@ -31,3 +31,7 @@ sudo dpkg-reconfigure wireshark-common
 # Click yes
 sudo adduser $USER wireshark
 # Restart virtual machine
+
+# Install OpenSSH
+sudo apt-get install openssh-server
+sudo ufw allow ssh
