@@ -16,10 +16,9 @@ During the implementation the following steps will be covered:
   - [Configure basic routing in PC gateway](#configure-basic-routing-in-pc-gateway)
   - [Configure basic routing in PC server](#configure-basic-routing-in-pc-server)
 - [WiFi access point](#sensor-system)
-  - [Deploy access point](#deploy-access-point)
-  - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-  - [Configure routing in PC server](#configure-routing-in-pc-server)
-  - [Test system and troubleshooting](#test-system-and-troubleshooting)
+  - [Configure dnsmasq](#configure-dnsmasq)
+  - [Configure hostapd](#configure-hostapd)
+  - [WiFi service start](#wifi-service-start)
 - [Webpage](#webpage)
   - [Configure apache server](#configure-apache-server)
   - [Design simple webpage](#design-simple-webpage)
@@ -71,15 +70,17 @@ Directory: `~/1-Configure-global-structure`
 <details>
 <summary>Open to see details</summary>
   
-### Deploy access point
+### Configure dnsmasq
 
-File: `gateway_iptables.sh`
+The first step of the WiFi access point will be configuring a DNS and DHCP server; for that purpose dnsmasq will be used. In the configuration file the interface is set to `wlan`, binding interface is enabled and a DHCP range is defined according to the general network scheme. Then, go to`~/2-WiFi-access-point` and execute the file `dnsmasq.conf`.
+  
+### Configure hostapd
+  
+Second, the access point needs to be implemented. Parameters like channel, password, interface are defined in the configuration file. Now again, go to `~/2-WiFi-access-point` and execute the file `hostapd.conf`.
+  
+### WiFi service start
 
-Borrar tabla route: `sudo ip route flush all`
-
-### Configure routing in PC gateway
-### Configure routing in PC server
-### Test system and troubleshooting
+Finally, when both the DNS/DHCP and the access point have been configured, they need to be started. Optionally, use from the same directory the script `wifi.sh`, that will do this task automatically when executed.
 
 </details>
 
