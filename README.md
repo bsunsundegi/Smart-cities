@@ -253,19 +253,20 @@ The PC gateway was already configured to allow routing throwards the machine. It
 The database was MySQL database. The install is `sudo apt install mysql-server` and the access to the DB is `sudo mysql -u smartcities -p`.
 The database was made following the next structure:
 ```sql
-CREATE TABLE SENSORS (
-      REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
-      SENSORID VARCHAR(25),
-      LATITUDE DECIMAL(8, 6),
-      LONGITUDE DECIMAL(9, 6),
-      DATETIME DATETIME,
-      TEMPERATURE INT(3),
-      ENERGY INT(3),
-      LIGHTSTATUS BIT(1)
-    );
+  CREATE TABLE SENSORS (
+    REGISTERID INT(10) PRIMARY KEY AUTO_INCREMENT,
+    SENSORID VARCHAR(25),
+    LATITUDE DECIMAL(8, 6),
+    LONGITUDE DECIMAL(9, 6),
+    DATETIME DATETIME,
+    TEMPERATURE INT(3),
+    ENERGY INT(3),
+    LIGHTSTATUS BIT(1)
+  );
 ```
 
 ### Improve webpage
+In the webpage was added a php file that makes a query to the database for knowing the IDs of the sensors inside the database. Then other php file do another query which shows the data from the last 2 weeks in order from most recent to the oldest.
 
 ### Test system and troubleshooting
 
