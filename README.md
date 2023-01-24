@@ -191,7 +191,7 @@ To modify the parameters of the video such as the frame rate, the resolution and
 
 `./start.sh`
 
-The file start.sh is in the folder 4-Video-surveillance.
+The file `start.sh` is in the folder 4-Video-surveillance.
 
 To view the video, the html file that corresponds to the video surveillance must be modified. The line that should be added is the following one:
 
