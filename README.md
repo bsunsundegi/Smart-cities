@@ -187,9 +187,15 @@ To start streaming video, a terminal must be opened in the Raspberry to enter th
 
 `mjpg_streamer`
 
+To modify the parameters of the video such as the frame rate, the resolution and the port through which the video will exit the Raspberry, execute the following file that has to be in the folder installed by the `sudo snap install mjpg-streamer` command:
+
+`./start.sh`
+
+
+
 To view the video, the html file that corresponds to the video surveillance must be modified. The line that should be added is the following one:
 
-`<img src="http://192.168.1.2:8080/?action=stream" width="1280" height="768" />`
+`<img src="http://192.168.1.2:2500/?action=stream" width="1280" height="768" />`
 
 You should be able to see the video in real time.
 
