@@ -8,3 +8,6 @@ sudo systemctl enable mosquitto
 # Install hostapd and dnsmasq
 sudo apt-get install hostapd
 sudo apt-get install dnsmasq
+
+# Install OpenSSH
+sudo apt-get install openssh-server
