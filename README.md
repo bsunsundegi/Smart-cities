@@ -228,7 +228,19 @@ The MQTT publisher and subscriber were created using NiFi.
 Publisher works with three street lights sending data over MQTT to the Server PC using Gateway PC path.
 ![NiFi](img/nifi_publishers.jpg)
 
-Each process has the same structure, using three blocks conforming a JSON which will be sent to the server. The JSON structure is represented in `5-Sensos-system/estructure.json`.
+Each process has the same structure, using three blocks conforming a JSON which will be sent to the server. The JSON structure is the following one:
+```json
+{
+  "sensorid":"id",
+  "latitude":"latitude",
+  "longitude":"longitude",
+  "timestamp":"timestamp",
+  "temperature":"temperature",
+  "energy":"energy",
+  "status":"status"
+}
+```
+
 ![Publisher_1](img/nifi_publishers2.jpg)
 
 This proccess saves the data to a MySQL database but during the proccess it extract the JSON data and updates the DATETIME atribute to a `YYYY-MM-DD HH:mm:ss` format.
