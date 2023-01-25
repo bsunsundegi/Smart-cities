@@ -1,1359 +1,391 @@
----
-template:
-  "-encoding-version": 1.3
-  description:
-  groupId: 639d33cb-0185-1000-1491-f292789d956a
-  name: Farolas
-  snippet:
-    processGroups:
-    -
-      id: 19617455-8a58-3a04-0000-000000000000
-      parentGroupId: 0cd968ec-30d0-3c2f-0000-000000000000
-      position:
-        x: 424.0
-        y: 0.0
-      comments:
-      contents:
-        connections:
-        -
-          id: 73dc77cb-99ab-34c0-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: 086d8f97-2117-39ff-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: bc3b1f22-5258-32cc-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        -
-          id: caa6a929-da7a-30dd-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: bc3b1f22-5258-32cc-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: 251e8828-c5d4-38ee-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          zIndex: 0
-        -
-          id: f7ee4eb9-db18-3151-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          bends:
-          -
-            x: 1277.0
-            y: 863.0
-          -
-            x: 1277.0
-            y: 913.0
-          destination:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: bc3b1f22-5258-32cc-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: failure
-          source:
-            groupId: 19617455-8a58-3a04-0000-000000000000
-            id: bc3b1f22-5258-32cc-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        processors:
-        -
-          id: 086d8f97-2117-39ff-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          position:
-            x: 808.0
-            y: 1032.0
-          versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          bundle:
-            artifact: nifi-mqtt-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Broker URI
-                value:
-                  name: Broker URI
-              -
-                key: Client ID
-                value:
-                  name: Client ID
-              -
-                key: Username
-                value:
-                  name: Username
-              -
-                key: Password
-                value:
-                  name: Password
-              -
-                key: SSL Context Service
-                value:
-                  identifiesControllerService: org.apache.nifi.ssl.SSLContextService
-                  name: SSL Context Service
-              -
-                key: Last Will Topic
-                value:
-                  name: Last Will Topic
-              -
-                key: Last Will Message
-                value:
-                  name: Last Will Message
-              -
-                key: Last Will Retain
-                value:
-                  name: Last Will Retain
-              -
-                key: Last Will QoS Level
-                value:
-                  name: Last Will QoS Level
-              -
-                key: Session state
-                value:
-                  name: Session state
-              -
-                key: MQTT Specification Version
-                value:
-                  name: MQTT Specification Version
-              -
-                key: Connection Timeout (seconds)
-                value:
-                  name: Connection Timeout (seconds)
-              -
-                key: Keep Alive Interval (seconds)
-                value:
-                  name: Keep Alive Interval (seconds)
-              -
-                key: Topic
-                value:
-                  name: Topic
-              -
-                key: Quality of Service(QoS)
-                value:
-                  name: Quality of Service(QoS)
-              -
-                key: Retain Message
-                value:
-                  name: Retain Message
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Broker URI
-                value: tcp://localhost:1883
-              -
-                key: Client ID
-              -
-                key: Username
-              -
-                key: Password
-              -
-                key: SSL Context Service
-              -
-                key: Last Will Topic
-              -
-                key: Last Will Message
-              -
-                key: Last Will Retain
-              -
-                key: Last Will QoS Level
-              -
-                key: Session state
-                value: true
-              -
-                key: MQTT Specification Version
-                value: 0
-              -
-                key: Connection Timeout (seconds)
-                value: 30
-              -
-                key: Keep Alive Interval (seconds)
-                value: 60
-              -
-                key: Topic
-                value: smartcities
-              -
-                key: Quality of Service(QoS)
-                value: 0
-              -
-                key: Retain Message
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: PublishMQTT
-          relationships:
-          -
-            autoTerminate: true
-            name: failure
-            retry: false
-          -
-            autoTerminate: true
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.mqtt.PublishMQTT
-        -
-          id: 251e8828-c5d4-38ee-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          position:
-            x: 808.0
-            y: 608.0
-          versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: File Size
-                value:
-                  name: File Size
-              -
-                key: Batch Size
-                value:
-                  name: Batch Size
-              -
-                key: Data Format
-                value:
-                  name: Data Format
-              -
-                key: Unique FlowFiles
-                value:
-                  name: Unique FlowFiles
-              -
-                key: generate-ff-custom-text
-                value:
-                  name: generate-ff-custom-text
-              -
-                key: character-set
-                value:
-                  name: character-set
-              -
-                key: mime-type
-                value:
-                  name: mime-type
-              -
-                key: energy
-                value:
-                  name: energy
-              -
-                key: id
-                value:
-                  name: id
-              -
-                key: latitude
-                value:
-                  name: latitude
-              -
-                key: longitude
-                value:
-                  name: longitude
-              -
-                key: status
-                value:
-                  name: status
-              -
-                key: temperature
-                value:
-                  name: temperature
-              -
-                key: timestamp
-                value:
-                  name: timestamp
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: File Size
-                value: 0B
-              -
-                key: Batch Size
-                value: 1
-              -
-                key: Data Format
-                value: Text
-              -
-                key: Unique FlowFiles
-                value: false
-              -
-                key: generate-ff-custom-text
-              -
-                key: character-set
-                value: UTF-8
-              -
-                key: mime-type
-              -
-                key: energy
-                value: ${random():mod(100):plus(1)}
-              -
-                key: id
-                value: 20006-1
-              -
-                key: latitude
-                value: 43.313471
-              -
-                key: longitude
-                value: -1.981839
-              -
-                key: status
-                value: 1
-              -
-                key: temperature
-                value: ${random():mod(41):plus(1)}
-              -
-                key: timestamp
-                value: ${now():toNumber()}
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 30 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: GenerateFlowFile
-          relationships:
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.GenerateFlowFile
-        -
-          id: bc3b1f22-5258-32cc-0000-000000000000
-          parentGroupId: 19617455-8a58-3a04-0000-000000000000
-          position:
-            x: 808.0
-            y: 824.0
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Attributes List
-                value:
-                  name: Attributes List
-              -
-                key: attributes-to-json-regex
-                value:
-                  name: attributes-to-json-regex
-              -
-                key: Destination
-                value:
-                  name: Destination
-              -
-                key: Include Core Attributes
-                value:
-                  name: Include Core Attributes
-              -
-                key: Null Value
-                value:
-                  name: Null Value
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Attributes List
-                value: id, timestamp, latitude, longitude, temperature, energy, status
-              -
-                key: attributes-to-json-regex
-              -
-                key: Destination
-                value: flowfile-content
-              -
-                key: Include Core Attributes
-                value: true
-              -
-                key: Null Value
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: AttributesToJSON
-          relationships:
-          -
-            autoTerminate: false
-            name: failure
-            retry: false
-          -
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.AttributesToJSON
-      defaultBackPressureDataSizeThreshold: 1 GB
-      defaultBackPressureObjectThreshold: 10000
-      defaultFlowFileExpiration: 0 sec
-      flowfileConcurrency: UNBOUNDED
-      flowfileOutboundPolicy: STREAM_WHEN_AVAILABLE
-      name: Farola Amara
-      variables:
-    -
-      id: 694f4d4c-d5f0-328a-0000-000000000000
-      parentGroupId: 0cd968ec-30d0-3c2f-0000-000000000000
-      position:
-        x: 224.0
-        y: 216.0
-      comments:
-      contents:
-        connections:
-        -
-          id: 0dc00558-cfb0-398e-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: cd707abb-353e-3940-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: b8a2c9dd-c817-3052-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          zIndex: 0
-        -
-          id: 472534ad-f5b6-311a-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: da90a518-baf2-3a6d-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: cd707abb-353e-3940-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        -
-          id: 6810a25d-6cc1-3d7f-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          bends:
-          -
-            x: 1277.0
-            y: 863.0
-          -
-            x: 1277.0
-            y: 913.0
-          destination:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: cd707abb-353e-3940-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: failure
-          source:
-            groupId: 694f4d4c-d5f0-328a-0000-000000000000
-            id: cd707abb-353e-3940-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        processors:
-        -
-          id: b8a2c9dd-c817-3052-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          position:
-            x: 808.0
-            y: 608.0
-          versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: File Size
-                value:
-                  name: File Size
-              -
-                key: Batch Size
-                value:
-                  name: Batch Size
-              -
-                key: Data Format
-                value:
-                  name: Data Format
-              -
-                key: Unique FlowFiles
-                value:
-                  name: Unique FlowFiles
-              -
-                key: generate-ff-custom-text
-                value:
-                  name: generate-ff-custom-text
-              -
-                key: character-set
-                value:
-                  name: character-set
-              -
-                key: mime-type
-                value:
-                  name: mime-type
-              -
-                key: energy
-                value:
-                  name: energy
-              -
-                key: id
-                value:
-                  name: id
-              -
-                key: latitude
-                value:
-                  name: latitude
-              -
-                key: longitude
-                value:
-                  name: longitude
-              -
-                key: status
-                value:
-                  name: status
-              -
-                key: temperature
-                value:
-                  name: temperature
-              -
-                key: timestamp
-                value:
-                  name: timestamp
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: File Size
-                value: 0B
-              -
-                key: Batch Size
-                value: 1
-              -
-                key: Data Format
-                value: Text
-              -
-                key: Unique FlowFiles
-                value: false
-              -
-                key: generate-ff-custom-text
-              -
-                key: character-set
-                value: UTF-8
-              -
-                key: mime-type
-              -
-                key: energy
-                value: ${random():mod(100):plus(1)}
-              -
-                key: id
-                value: 20018-1
-              -
-                key: latitude
-                value: 43.308757
-              -
-                key: longitude
-                value: -2.010294
-              -
-                key: status
-                value: 1
-              -
-                key: temperature
-                value: ${random():mod(41):plus(1)}
-              -
-                key: timestamp
-                value: ${now():toNumber()}
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 30 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: GenerateFlowFile
-          relationships:
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.GenerateFlowFile
-        -
-          id: cd707abb-353e-3940-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          position:
-            x: 808.0
-            y: 824.0
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Attributes List
-                value:
-                  name: Attributes List
-              -
-                key: attributes-to-json-regex
-                value:
-                  name: attributes-to-json-regex
-              -
-                key: Destination
-                value:
-                  name: Destination
-              -
-                key: Include Core Attributes
-                value:
-                  name: Include Core Attributes
-              -
-                key: Null Value
-                value:
-                  name: Null Value
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Attributes List
-                value: id, timestamp, latitude, longitude, temperature, energy, status
-              -
-                key: attributes-to-json-regex
-              -
-                key: Destination
-                value: flowfile-content
-              -
-                key: Include Core Attributes
-                value: true
-              -
-                key: Null Value
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: AttributesToJSON
-          relationships:
-          -
-            autoTerminate: false
-            name: failure
-            retry: false
-          -
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.AttributesToJSON
-        -
-          id: da90a518-baf2-3a6d-0000-000000000000
-          parentGroupId: 694f4d4c-d5f0-328a-0000-000000000000
-          position:
-            x: 808.0
-            y: 1032.0
-          versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          bundle:
-            artifact: nifi-mqtt-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Broker URI
-                value:
-                  name: Broker URI
-              -
-                key: Client ID
-                value:
-                  name: Client ID
-              -
-                key: Username
-                value:
-                  name: Username
-              -
-                key: Password
-                value:
-                  name: Password
-              -
-                key: SSL Context Service
-                value:
-                  identifiesControllerService: org.apache.nifi.ssl.SSLContextService
-                  name: SSL Context Service
-              -
-                key: Last Will Topic
-                value:
-                  name: Last Will Topic
-              -
-                key: Last Will Message
-                value:
-                  name: Last Will Message
-              -
-                key: Last Will Retain
-                value:
-                  name: Last Will Retain
-              -
-                key: Last Will QoS Level
-                value:
-                  name: Last Will QoS Level
-              -
-                key: Session state
-                value:
-                  name: Session state
-              -
-                key: MQTT Specification Version
-                value:
-                  name: MQTT Specification Version
-              -
-                key: Connection Timeout (seconds)
-                value:
-                  name: Connection Timeout (seconds)
-              -
-                key: Keep Alive Interval (seconds)
-                value:
-                  name: Keep Alive Interval (seconds)
-              -
-                key: Topic
-                value:
-                  name: Topic
-              -
-                key: Quality of Service(QoS)
-                value:
-                  name: Quality of Service(QoS)
-              -
-                key: Retain Message
-                value:
-                  name: Retain Message
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Broker URI
-                value: tcp://localhost:1883
-              -
-                key: Client ID
-              -
-                key: Username
-              -
-                key: Password
-              -
-                key: SSL Context Service
-              -
-                key: Last Will Topic
-              -
-                key: Last Will Message
-              -
-                key: Last Will Retain
-              -
-                key: Last Will QoS Level
-              -
-                key: Session state
-                value: true
-              -
-                key: MQTT Specification Version
-                value: 0
-              -
-                key: Connection Timeout (seconds)
-                value: 30
-              -
-                key: Keep Alive Interval (seconds)
-                value: 60
-              -
-                key: Topic
-                value: smartcities
-              -
-                key: Quality of Service(QoS)
-                value: 0
-              -
-                key: Retain Message
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: PublishMQTT
-          relationships:
-          -
-            autoTerminate: true
-            name: failure
-            retry: false
-          -
-            autoTerminate: true
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.mqtt.PublishMQTT
-      defaultBackPressureDataSizeThreshold: 1 GB
-      defaultBackPressureObjectThreshold: 10000
-      defaultFlowFileExpiration: 0 sec
-      flowfileConcurrency: UNBOUNDED
-      flowfileOutboundPolicy: STREAM_WHEN_AVAILABLE
-      name: Farola Antiguo
-      variables:
-    -
-      id: 6bd08831-1c77-33ea-0000-000000000000
-      parentGroupId: 0cd968ec-30d0-3c2f-0000-000000000000
-      position:
-        x: 0.0
-        y: 0.0
-      comments:
-      contents:
-        connections:
-        -
-          id: 2d39964c-0120-3a3b-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: d3b07fbc-9336-3dc2-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: f0bd35cb-eb6e-3fdc-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        -
-          id: a51bd5f0-b1f1-3d82-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          bends:
-          -
-            x: 1277.0
-            y: 863.0
-          -
-            x: 1277.0
-            y: 913.0
-          destination:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: f0bd35cb-eb6e-3fdc-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: failure
-          source:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: f0bd35cb-eb6e-3fdc-0000-000000000000
-            type: PROCESSOR
-          zIndex: 0
-        -
-          id: b0938f50-8337-31dd-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          backPressureDataSizeThreshold: 1 GB
-          backPressureObjectThreshold: 10000
-          destination:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: f0bd35cb-eb6e-3fdc-0000-000000000000
-            type: PROCESSOR
-          flowFileExpiration: 0 sec
-          labelIndex: 1
-          loadBalanceCompression: DO_NOT_COMPRESS
-          loadBalancePartitionAttribute:
-          loadBalanceStatus: LOAD_BALANCE_NOT_CONFIGURED
-          loadBalanceStrategy: DO_NOT_LOAD_BALANCE
-          name:
-          selectedRelationships: success
-          source:
-            groupId: 6bd08831-1c77-33ea-0000-000000000000
-            id: 4ff5099e-a7ec-3019-0000-000000000000
-            type: PROCESSOR
-            versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          zIndex: 0
-        processors:
-        -
-          id: 4ff5099e-a7ec-3019-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          position:
-            x: 808.0
-            y: 608.0
-          versionedComponentId: b34946d8-df91-3e41-a783-4d3193e0aa1e
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: File Size
-                value:
-                  name: File Size
-              -
-                key: Batch Size
-                value:
-                  name: Batch Size
-              -
-                key: Data Format
-                value:
-                  name: Data Format
-              -
-                key: Unique FlowFiles
-                value:
-                  name: Unique FlowFiles
-              -
-                key: generate-ff-custom-text
-                value:
-                  name: generate-ff-custom-text
-              -
-                key: character-set
-                value:
-                  name: character-set
-              -
-                key: mime-type
-                value:
-                  name: mime-type
-              -
-                key: energy
-                value:
-                  name: energy
-              -
-                key: id
-                value:
-                  name: id
-              -
-                key: latitude
-                value:
-                  name: latitude
-              -
-                key: longitude
-                value:
-                  name: longitude
-              -
-                key: status
-                value:
-                  name: status
-              -
-                key: temperature
-                value:
-                  name: temperature
-              -
-                key: timestamp
-                value:
-                  name: timestamp
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: File Size
-                value: 0B
-              -
-                key: Batch Size
-                value: 1
-              -
-                key: Data Format
-                value: Text
-              -
-                key: Unique FlowFiles
-                value: false
-              -
-                key: generate-ff-custom-text
-              -
-                key: character-set
-                value: UTF-8
-              -
-                key: mime-type
-              -
-                key: energy
-                value: ${random():mod(100):plus(1)}
-              -
-                key: id
-                value: 20009-1
-              -
-                key: latitude
-                value: 43.290831
-              -
-                key: longitude
-                value: -1.983960
-              -
-                key: status
-                value: 1
-              -
-                key: temperature
-                value: ${random():mod(41):plus(1)}
-              -
-                key: timestamp
-                value: ${now():toNumber()}
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 30 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: GenerateFlowFile
-          relationships:
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.GenerateFlowFile
-        -
-          id: d3b07fbc-9336-3dc2-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          position:
-            x: 808.0
-            y: 1032.0
-          versionedComponentId: 665eb3fc-bbce-3b2c-9ac1-fb60fde910ed
-          bundle:
-            artifact: nifi-mqtt-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Broker URI
-                value:
-                  name: Broker URI
-              -
-                key: Client ID
-                value:
-                  name: Client ID
-              -
-                key: Username
-                value:
-                  name: Username
-              -
-                key: Password
-                value:
-                  name: Password
-              -
-                key: SSL Context Service
-                value:
-                  identifiesControllerService: org.apache.nifi.ssl.SSLContextService
-                  name: SSL Context Service
-              -
-                key: Last Will Topic
-                value:
-                  name: Last Will Topic
-              -
-                key: Last Will Message
-                value:
-                  name: Last Will Message
-              -
-                key: Last Will Retain
-                value:
-                  name: Last Will Retain
-              -
-                key: Last Will QoS Level
-                value:
-                  name: Last Will QoS Level
-              -
-                key: Session state
-                value:
-                  name: Session state
-              -
-                key: MQTT Specification Version
-                value:
-                  name: MQTT Specification Version
-              -
-                key: Connection Timeout (seconds)
-                value:
-                  name: Connection Timeout (seconds)
-              -
-                key: Keep Alive Interval (seconds)
-                value:
-                  name: Keep Alive Interval (seconds)
-              -
-                key: Topic
-                value:
-                  name: Topic
-              -
-                key: Quality of Service(QoS)
-                value:
-                  name: Quality of Service(QoS)
-              -
-                key: Retain Message
-                value:
-                  name: Retain Message
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Broker URI
-                value: tcp://localhost:1883
-              -
-                key: Client ID
-              -
-                key: Username
-              -
-                key: Password
-              -
-                key: SSL Context Service
-              -
-                key: Last Will Topic
-              -
-                key: Last Will Message
-              -
-                key: Last Will Retain
-              -
-                key: Last Will QoS Level
-              -
-                key: Session state
-                value: true
-              -
-                key: MQTT Specification Version
-                value: 0
-              -
-                key: Connection Timeout (seconds)
-                value: 30
-              -
-                key: Keep Alive Interval (seconds)
-                value: 60
-              -
-                key: Topic
-                value: smartcities
-              -
-                key: Quality of Service(QoS)
-                value: 0
-              -
-                key: Retain Message
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: PublishMQTT
-          relationships:
-          -
-            autoTerminate: true
-            name: failure
-            retry: false
-          -
-            autoTerminate: true
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.mqtt.PublishMQTT
-        -
-          id: f0bd35cb-eb6e-3fdc-0000-000000000000
-          parentGroupId: 6bd08831-1c77-33ea-0000-000000000000
-          position:
-            x: 808.0
-            y: 824.0
-          bundle:
-            artifact: nifi-standard-nar
-            group: org.apache.nifi
-            version: 1.16.3
-          config:
-            backoffMechanism: PENALIZE_FLOWFILE
-            bulletinLevel: WARN
-            comments:
-            concurrentlySchedulableTaskCount: 1
-            descriptors:
-              entry:
-              -
-                key: Attributes List
-                value:
-                  name: Attributes List
-              -
-                key: attributes-to-json-regex
-                value:
-                  name: attributes-to-json-regex
-              -
-                key: Destination
-                value:
-                  name: Destination
-              -
-                key: Include Core Attributes
-                value:
-                  name: Include Core Attributes
-              -
-                key: Null Value
-                value:
-                  name: Null Value
-            executionNode: ALL
-            lossTolerant: false
-            maxBackoffPeriod: 10 mins
-            penaltyDuration: 30 sec
-            properties:
-              entry:
-              -
-                key: Attributes List
-                value: id, timestamp, latitude, longitude, temperature, energy, status
-              -
-                key: attributes-to-json-regex
-              -
-                key: Destination
-                value: flowfile-content
-              -
-                key: Include Core Attributes
-                value: true
-              -
-                key: Null Value
-                value: false
-            retryCount: 10
-            runDurationMillis: 0
-            schedulingPeriod: 0 sec
-            schedulingStrategy: TIMER_DRIVEN
-            yieldDuration: 1 sec
-          executionNodeRestricted: false
-          name: AttributesToJSON
-          relationships:
-          -
-            autoTerminate: false
-            name: failure
-            retry: false
-          -
-            autoTerminate: false
-            name: success
-            retry: false
-          state: RUNNING
-          style:
-          type: org.apache.nifi.processors.standard.AttributesToJSON
-      defaultBackPressureDataSizeThreshold: 1 GB
-      defaultBackPressureObjectThreshold: 10000
-      defaultFlowFileExpiration: 0 sec
-      flowfileConcurrency: UNBOUNDED
-      flowfileOutboundPolicy: STREAM_WHEN_AVAILABLE
-      name: Farola Miramón
-      variables:
-  timestamp: 12/30/2022 16:49:37 CET
+MiNiFi Config Version: 3
+Flow Controller:
+  name: Publishers
+  comment: ''
+Core Properties:
+  flow controller graceful shutdown period: 10 sec
+  flow service write delay interval: 500 ms
+  administrative yield duration: 30 sec
+  bored yield duration: 10 millis
+  max concurrent threads: 1
+  variable registry properties: ''
+FlowFile Repository:
+  implementation: org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+  partitions: 256
+  checkpoint interval: 2 mins
+  always sync: false
+  Swap:
+    threshold: 20000
+    in period: 5 sec
+    in threads: 1
+    out period: 5 sec
+    out threads: 4
+Content Repository:
+  implementation: org.apache.nifi.controller.repository.FileSystemRepository
+  content claim max appendable size: 10 MB
+  content claim max flow files: 100
+  content repository archive enabled: false
+  content repository archive max retention period: 12 hours
+  content repository archive max usage percentage: 50%
+  always sync: false
+Provenance Repository:
+  provenance rollover time: 1 min
+  implementation: org.apache.nifi.provenance.WriteAheadProvenanceRepository
+  provenance index shard size: 500 MB
+  provenance max storage size: 1 GB
+  provenance max storage time: 24 hours
+  provenance buffer size: 10000
+Component Status Repository:
+  buffer size: 1440
+  snapshot frequency: 1 min
+Security Properties:
+  keystore: ''
+  keystore type: ''
+  keystore password: ''
+  key password: ''
+  truststore: ''
+  truststore type: ''
+  truststore password: ''
+  ssl protocol: ''
+  Sensitive Props:
+    key:
+    algorithm: NIFI_PBKDF2_AES_GCM_256
+Processors: []
+Controller Services: []
+Process Groups:
+- id: 19617455-8a58-3a04-0000-000000000000
+  name: Amara street light
+  Processors:
+  - id: bc3b1f22-5258-32cc-0000-000000000000
+    name: AttributesToJSON
+    class: org.apache.nifi.processors.standard.AttributesToJSON
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Attributes List: id, timestamp, latitude, longitude, temperature, energy, status
+      Destination: flowfile-content
+      Include Core Attributes: 'true'
+      Null Value: 'false'
+      attributes-to-json-regex:
+  - id: 251e8828-c5d4-38ee-0000-000000000000
+    name: GenerateFlowFile
+    class: org.apache.nifi.processors.standard.GenerateFlowFile
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 30 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Batch Size: '1'
+      Data Format: Text
+      File Size: 0B
+      Unique FlowFiles: 'false'
+      character-set: UTF-8
+      energy: ${random():mod(100):plus(1)}
+      generate-ff-custom-text:
+      id: 20006-1
+      latitude: '43.313471'
+      longitude: '-1.981839'
+      mime-type:
+      status: '1'
+      temperature: ${random():mod(41):plus(1)}
+      timestamp: ${now():toNumber()}
+  - id: 086d8f97-2117-39ff-0000-000000000000
+    name: PublishMQTT
+    class: org.apache.nifi.processors.mqtt.PublishMQTT
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list:
+    - failure
+    - success
+    Properties:
+      Broker URI: tcp://192.168.2.1:1883
+      Client ID:
+      Connection Timeout (seconds): '30'
+      Keep Alive Interval (seconds): '60'
+      Last Will Message:
+      Last Will QoS Level:
+      Last Will Retain:
+      Last Will Topic:
+      MQTT Specification Version: '0'
+      Password:
+      Quality of Service(QoS): '0'
+      Retain Message: 'false'
+      SSL Context Service:
+      Session state: 'true'
+      Topic: smartcities
+      Username:
+  Controller Services: []
+  Process Groups: []
+  Input Ports: []
+  Output Ports: []
+  Funnels: []
+  Connections:
+  - id: f7ee4eb9-db18-3151-0000-000000000000
+    name: AttributesToJSON/failure/AttributesToJSON
+    source id: bc3b1f22-5258-32cc-0000-000000000000
+    source relationship names:
+    - failure
+    destination id: bc3b1f22-5258-32cc-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: 73dc77cb-99ab-34c0-0000-000000000000
+    name: AttributesToJSON/success/PublishMQTT
+    source id: bc3b1f22-5258-32cc-0000-000000000000
+    source relationship names:
+    - success
+    destination id: 086d8f97-2117-39ff-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: caa6a929-da7a-30dd-0000-000000000000
+    name: GenerateFlowFile/success/AttributesToJSON
+    source id: 251e8828-c5d4-38ee-0000-000000000000
+    source relationship names:
+    - success
+    destination id: bc3b1f22-5258-32cc-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  Remote Process Groups: []
+- id: 694f4d4c-d5f0-328a-0000-000000000000
+  name: Antiguo street light
+  Processors:
+  - id: cd707abb-353e-3940-0000-000000000000
+    name: AttributesToJSON
+    class: org.apache.nifi.processors.standard.AttributesToJSON
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Attributes List: id, timestamp, latitude, longitude, temperature, energy, status
+      Destination: flowfile-content
+      Include Core Attributes: 'true'
+      Null Value: 'false'
+      attributes-to-json-regex:
+  - id: b8a2c9dd-c817-3052-0000-000000000000
+    name: GenerateFlowFile
+    class: org.apache.nifi.processors.standard.GenerateFlowFile
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 30 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Batch Size: '1'
+      Data Format: Text
+      File Size: 0B
+      Unique FlowFiles: 'false'
+      character-set: UTF-8
+      energy: ${random():mod(100):plus(1)}
+      generate-ff-custom-text:
+      id: 20018-1
+      latitude: '43.308757'
+      longitude: '-2.010294'
+      mime-type:
+      status: '1'
+      temperature: ${random():mod(41):plus(1)}
+      timestamp: ${now():toNumber()}
+  - id: da90a518-baf2-3a6d-0000-000000000000
+    name: PublishMQTT
+    class: org.apache.nifi.processors.mqtt.PublishMQTT
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list:
+    - failure
+    - success
+    Properties:
+      Broker URI: tcp://192.168.2.1:1883
+      Client ID:
+      Connection Timeout (seconds): '30'
+      Keep Alive Interval (seconds): '60'
+      Last Will Message:
+      Last Will QoS Level:
+      Last Will Retain:
+      Last Will Topic:
+      MQTT Specification Version: '0'
+      Password:
+      Quality of Service(QoS): '0'
+      Retain Message: 'false'
+      SSL Context Service:
+      Session state: 'true'
+      Topic: smartcities
+      Username:
+  Controller Services: []
+  Process Groups: []
+  Input Ports: []
+  Output Ports: []
+  Funnels: []
+  Connections:
+  - id: 6810a25d-6cc1-3d7f-0000-000000000000
+    name: AttributesToJSON/failure/AttributesToJSON
+    source id: cd707abb-353e-3940-0000-000000000000
+    source relationship names:
+    - failure
+    destination id: cd707abb-353e-3940-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: 472534ad-f5b6-311a-0000-000000000000
+    name: AttributesToJSON/success/PublishMQTT
+    source id: cd707abb-353e-3940-0000-000000000000
+    source relationship names:
+    - success
+    destination id: da90a518-baf2-3a6d-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: 0dc00558-cfb0-398e-0000-000000000000
+    name: GenerateFlowFile/success/AttributesToJSON
+    source id: b8a2c9dd-c817-3052-0000-000000000000
+    source relationship names:
+    - success
+    destination id: cd707abb-353e-3940-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  Remote Process Groups: []
+- id: 6bd08831-1c77-33ea-0000-000000000000
+  name: Miramon street light
+  Processors:
+  - id: f0bd35cb-eb6e-3fdc-0000-000000000000
+    name: AttributesToJSON
+    class: org.apache.nifi.processors.standard.AttributesToJSON
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Attributes List: id, timestamp, latitude, longitude, temperature, energy, status
+      Destination: flowfile-content
+      Include Core Attributes: 'true'
+      Null Value: 'false'
+      attributes-to-json-regex:
+  - id: 4ff5099e-a7ec-3019-0000-000000000000
+    name: GenerateFlowFile
+    class: org.apache.nifi.processors.standard.GenerateFlowFile
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 30 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list: []
+    Properties:
+      Batch Size: '1'
+      Data Format: Text
+      File Size: 0B
+      Unique FlowFiles: 'false'
+      character-set: UTF-8
+      energy: ${random():mod(100):plus(1)}
+      generate-ff-custom-text:
+      id: 20009-1
+      latitude: '43.290831'
+      longitude: '-1.983960'
+      mime-type:
+      status: '1'
+      temperature: ${random():mod(41):plus(1)}
+      timestamp: ${now():toNumber()}
+  - id: d3b07fbc-9336-3dc2-0000-000000000000
+    name: PublishMQTT
+    class: org.apache.nifi.processors.mqtt.PublishMQTT
+    max concurrent tasks: 1
+    scheduling strategy: TIMER_DRIVEN
+    scheduling period: 0 sec
+    penalization period: 30 sec
+    yield period: 1 sec
+    run duration nanos: 0
+    auto-terminated relationships list:
+    - failure
+    - success
+    Properties:
+      Broker URI: tcp://192.168.2.1:1883
+      Client ID:
+      Connection Timeout (seconds): '30'
+      Keep Alive Interval (seconds): '60'
+      Last Will Message:
+      Last Will QoS Level:
+      Last Will Retain:
+      Last Will Topic:
+      MQTT Specification Version: '0'
+      Password:
+      Quality of Service(QoS): '0'
+      Retain Message: 'false'
+      SSL Context Service:
+      Session state: 'true'
+      Topic: smartcities
+      Username:
+  Controller Services: []
+  Process Groups: []
+  Input Ports: []
+  Output Ports: []
+  Funnels: []
+  Connections:
+  - id: a51bd5f0-b1f1-3d82-0000-000000000000
+    name: AttributesToJSON/failure/AttributesToJSON
+    source id: f0bd35cb-eb6e-3fdc-0000-000000000000
+    source relationship names:
+    - failure
+    destination id: f0bd35cb-eb6e-3fdc-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: 2d39964c-0120-3a3b-0000-000000000000
+    name: AttributesToJSON/success/PublishMQTT
+    source id: f0bd35cb-eb6e-3fdc-0000-000000000000
+    source relationship names:
+    - success
+    destination id: d3b07fbc-9336-3dc2-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  - id: b0938f50-8337-31dd-0000-000000000000
+    name: GenerateFlowFile/success/AttributesToJSON
+    source id: 4ff5099e-a7ec-3019-0000-000000000000
+    source relationship names:
+    - success
+    destination id: f0bd35cb-eb6e-3fdc-0000-000000000000
+    max work queue size: 10000
+    max work queue data size: 1 GB
+    flowfile expiration: 0 sec
+    queue prioritizer class: ''
+  Remote Process Groups: []
+Input Ports: []
+Output Ports: []
+Funnels: []
+Connections: []
+Remote Process Groups: []
+NiFi Properties Overrides: {}
