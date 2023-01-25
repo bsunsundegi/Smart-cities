@@ -1,14 +1,13 @@
-# Video node: 1:10, HTTP, 2500
-# Sensors: 1:20, MQTT, 1883
-# WiFi: 1:30, HTTPS, 443
-# Default: 1:40
-
 # Define variables with the name of the interfaces
 
 interface_server=enx000ec6c091fd
 interface_wifi=wlxe894f60b829a
 
 # Configure qdisc in the interface to PC server
+# Video: 1:10, HTTP, 2500
+# Sensors: 1:20, MQTT, 1883
+# WiFi: 1:30, HTTPS, 443
+# Default: 1:40
 
 tc qdisc add dev $interface_server root handle 1:0 htb default 40
 
@@ -43,6 +42,7 @@ iptables -t mangle -A OUTPUT -o $interface_server -j MARK --set-mark 40
 iptables -t mangle -A OUTPUT -o $interface_server -j RETURN
 
 # Configure qdisc in the interface to WiFi
+# Default: 1:1
 
 tc qdisc add dev $interface_wifi root handle 1:0 htb default 1
 
