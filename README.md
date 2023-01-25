@@ -29,12 +29,7 @@ During the implementation the following steps will be covered:
   - [Video surveillance](#video-surveillance)
     - [Configure RaspberryPi](#configure-raspberrypi)
     - [Install camera](#install-camera)
-    - [Configure routing in PC gateway](#configure-routing-in-pc-gateway)
-    - [Configure streaming reception in PC gateway](#configure-streaming-reception-in-pc-gateway)
-    - [Configure streaming reception in PC server](#configure-streaming-reception-in-pc-server)
-    - [Improve webpage](#improve-webpage)
     - [Test system and troubleshooting](#test-system-and-troubleshooting)
-    - [Security improvement](#security-improvement)
   - [Sensor system](#sensor-system)
     - [Configure RaspberryPi](#configure-raspberrypi-1)
     - [Install sensors software](#install-sensors-software)
@@ -44,7 +39,6 @@ During the implementation the following steps will be covered:
     - [Configure database](#configure-database)
     - [Improve webpage](#improve-webpage-1)
     - [Test system and troubleshooting](#test-system-and-troubleshooting-1)
-    - [Security improvement](#security-improvement-1)
   - [Suggestion box](#suggestion-box)
 
 ## Configure global structure
@@ -203,18 +197,13 @@ To view the video, the html file that corresponds to the video surveillance must
 
 You should be able to see the video in real time.
 
-### Configure routing in PC gateway
-### Configure streaming reception in PC gateway
-### Configure streaming reception in PC server
-### Improve webpage
 ### Test system and troubleshooting
 When connecting the Raspberry Pi to a PC monitor, it did not work using display port nor VGA, just using a HDMI-HDMI connection between them. In addition, in the 'config.txt' file the screen resolution needs to be changed, accordingly to monitor's resolution, in the parameter hdmi_mode; in our case a resolution of 640x480 was used.
-### Security improvement
 
 </details>
 
 ## Sensor system
-A Raspberry Pi simulates multiple data sensors that will be send to the PC Server using MQTT. The PC Server saves the new data in a MySQL database and the webpage can get the data from there.
+A Raspberry Pi simulates multiple data sensors that will be sent to the PC Server using MQTT. The PC Server saves the new data in a MySQL database and the webpage can get the data from there.
 <details>
 <summary>Open to see details</summary>
   
@@ -275,8 +264,6 @@ During the testing ocurred multiple errors that were solved as:
 1. MiNiFi needs to have java-8-openjdk installed, the latest version (java-11-openjdk) doesn't work. That generates errors during the transformation from `xml` to `yml`.
 2. Once the template is transformed and correctly moved to the path, the aplication needs an extra package for sending the MQTT messages, that package is `nifi-mqtt-nar-X.X.X.nar`.
 3. Sometimes the connections between Raspberry Pi - Gateway and Gateway - Server fails and need be execute the script again.
-
-### Security improvement
 
 </details>
 
