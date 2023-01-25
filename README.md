@@ -42,6 +42,8 @@ During the implementation the following steps will be covered:
   - [Suggestion box](#suggestion-box)
 
 ## Configure global structure
+
+In the first part of the deployment the virtual machines have to be initiated, as well as some installations and configurations for the server and gateway are made.
 <details>
 <summary>Open to see details</summary>
   
@@ -65,6 +67,9 @@ Lastly, a QoS configuration is made, to distribute the available bandwith betwee
 </details>
   
 ## WiFi access point
+
+This smart city provides WiFi connection to the citizens, so an access point (AP) is deployed, that is connected to PC gateway by USB. For the AP the device TL-WN722N is used, a USB adapter that gives high gain wireless WiFi connection.
+
 <details>
 <summary>Open to see details</summary>
   
@@ -83,6 +88,8 @@ Finally, when both the DNS/DHCP and the access point have been configured, they 
 </details>
 
 ## Webpage
+
+The server hosts a webpage for city monitoring and users suggestion box. Therefore, an admin user will be able to look at the video cameras, analyse the city sensors and read suggestions from the users. On the other hand, users connected to the WiFi access point can provide suggestions with their user and password.
 <details>
 <summary>Open to see details</summary>
   
@@ -102,6 +109,9 @@ This page has three buttons. Each button corresponds to each one of the 3 possib
 </details>
 
 ## Video surveillance
+
+The video surveillance of the smart city will be carried out using a webcam connected to the Raspberry Pi, sending it real time video, and this video signal will be received by the PC gateway. Before that, the Raspberry and the camera need to be properly configured.
+
 <details>
 <summary>Open to see details</summary>
   
@@ -275,7 +285,6 @@ During the testing ocurred multiple errors that were solved as:
 
 1. MiNiFi needs to have java-8-openjdk installed, the latest version (java-11-openjdk) doesn't work. That generates errors during the transformation from `xml` to `yml`.
 2. Once the template is transformed and correctly moved to the path, the aplication needs an extra package for sending the MQTT messages, that package is `nifi-mqtt-nar-X.X.X.nar`.
-3. Sometimes the connections between Raspberry Pi - Gateway and Gateway - Server fails and need be execute the script again.
 
 </details>
 
