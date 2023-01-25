@@ -291,6 +291,9 @@ During the testing ocurred multiple errors that were solved as:
 </details>
 
 ## Suggestion box
+
+Depending on the login credentials, the access to the suggestion box is different. When logging in as an admin, the suggestions from the users are visible, as well as users data. When the user logs in, it can only send a new suggestion, with a specific topic, but can not review previous suggestions.
+
 <details>
 <summary>Open to see details</summary>
 </details>
