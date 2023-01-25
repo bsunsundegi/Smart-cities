@@ -44,7 +44,7 @@
 		<p>Your suggestion has been registered.</p>
 
 		<div class="center">
-			<form action="user_home.html" method="post">
+			<form action="user_home.php" method="get">
 				<input type="hidden" name="name" value="<?php echo $name; ?>">
 				<input type="hidden" name="username" value="<?php echo $username; ?>">
 				<button type="submit">Go back</button>
