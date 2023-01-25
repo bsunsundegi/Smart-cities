@@ -1,4 +1,12 @@
+# Define variables with the name of the interfaces
+
 interface_gateway=enx000ec6c09235
+
+# Configure qdisc in the interface to PC gateway
+# Video: 1:10, HTTP, 2500
+# Sensors: 1:20, MQTT, 1883
+# WiFi: 1:30, HTTPS, 443
+# Default: 1:40
 
 tc qdisc add dev $interface_gateway root handle 1:0 htb default 40
 
