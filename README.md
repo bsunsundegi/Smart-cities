@@ -203,7 +203,7 @@ The file `start.sh` is in the folder 4-Video-surveillance.
 
 To view the video, the html file that corresponds to the video surveillance must be modified. The line that should be added is the following one:
 
-`<img src="http://192.168.1.2:2500/?action=stream" width=800*device_width height=500*device_height />`
+`<img src="http://192.168.1.2:2500/?action=stream" width=800 height=500>`
 
 You should be able to see the video in real time.
 
