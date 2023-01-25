@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<title>Login</title>
+	</head>
+
+	<body>
+		<div class="header">
+			<img src="img/donostia.png" width="300">
+			<h1>Login</h1>
+		</div>
+		
+		<p class="message">The user has been successfully registered.</p>
+		<p>Please, introduce your username and password.</p>
+		<form action="login.php" method="post">
+			<label>Username:</label>
+			<input type="text" name="username" placeholder="Username">
+			<br><br>
+			<label>Password:</label>
+			<input type="password" name="password" placeholder="Password">
+			<br>
+			<button class="button" type="submit">Login</button>
+		</form>
+		
+		<p>If you haven't signed up yet, click the following button.</p>
+		<form action="signup.html" method="post">
+			<button class="button" type="submit">Sign up</button>
+		</form>
+	</body>
+</html>
