@@ -5,7 +5,7 @@ interface_host=ens33
 # Configure IP address of the interfaces
 ifconfig $interface_gateway 192.168.0.2 netmask 255.255.255.0
 
-# Delete interface ens33 as default gateway
+# Delete interface to host as default gateway
 route del default gw 192.168.150.2 $interface_host
 
 # Set interface to PCGateway as default gateway
