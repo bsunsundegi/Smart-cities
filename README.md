@@ -208,7 +208,7 @@ To view the video, the html file that corresponds to the video surveillance must
 You should be able to see the video in real time.
 
 ### Test system and troubleshooting
-When connecting the Raspberry Pi to a PC monitor, it did not work using display port nor VGA, just using a HDMI-HDMI connection between them. In addition, in the 'config.txt' file the screen resolution needs to be changed, accordingly to monitor's resolution, in the parameter hdmi_mode; in our case a resolution of 640x480 was used.
+When connecting the Raspberry Pi to a PC monitor, it did not work using display port nor VGA, just using a HDMI-HDMI connection between them. In addition, in the 'config.txt' file the screen resolution needs to be changed, accordingly to monitor's resolution, in the parameter `hdmi_mode`.
 
 The Raspberry's date and time may not be the desired one, since by default it appears a different one. This can be solved just by using the command `sudo date -s 'YYYY-MM-DD hh:mm:ss'`.
 
