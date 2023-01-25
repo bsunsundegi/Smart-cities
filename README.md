@@ -274,6 +274,7 @@ During the testing ocurred multiple errors that were solved as:
 
 1. MiNiFi needs to have java-8-openjdk installed, the latest version (java-11-openjdk) doesn't work. That generates errors during the transformation from `xml` to `yml`.
 2. Once the template is transformed and correctly moved to the path, the aplication needs an extra package for sending the MQTT messages, that package is `nifi-mqtt-nar-X.X.X.nar`.
+3. Sometimes the connections between Raspberry Pi - Gateway and Gateway - Server fails and need be execute the script again.
 
 ### Security improvement
 
