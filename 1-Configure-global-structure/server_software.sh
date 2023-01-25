@@ -34,4 +34,9 @@ sudo adduser $USER wireshark
 
 # Install OpenSSH
 sudo apt-get install openssh-server
+
+# Enable and configure ports in firewall
 sudo ufw allow ssh
+sudo ufw allow 22
+sudo ufw allow 3306
+sudo ufw allow 'Apache Full'
