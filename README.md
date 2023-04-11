@@ -3,7 +3,7 @@
 ## Description
 This is the GitHub repository for the final practice of Smart cities. The authors of the practice are [@bsunsundegi](https://github.com/bsunsundegi), [@jmuguruza](https://github.com/jmuguruza), [@acamher](https://github.com/acamher) and [@carlostoca1](https://github.com/carlostoca1).
 
-**Project Status:** `in progress`
+**Project Status:** `finished`
 
 The Smart City network will be like the one shown below:
 ![network_scheme](https://github.com/bsunsundegi/Smart-cities/blob/main/img/Network.png)
